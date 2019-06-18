@@ -1,4 +1,4 @@
-updateIntrodution = function(){
+﻿updateIntrodution = function(){
     this.rocket.ang = 3.14;
     this.renderPlanets();
     this.renderAstrounaut();
@@ -291,7 +291,14 @@ class Infografico
         this.map.build[4].func =
             function(){
                 var div = document.getElementById("gamestartscreen"); 
-                div.innerHTML = "Erivan";
+                div.innerHTML = `
+                <div style="width: 100%;text-align: center; font-size: 4vw; font-weight: 900">
+                    <span style="font-family: 'Montserrat', sans-serif" > DESIGN </span>
+                </div>
+                <div style="position: absolute; font-size: 2vw; padding: 6%; font-weight: 600; text-align: center; font-family: 'Montserrat', sans-serif">
+                Na área de Design, o projeto apresenta oficinas de Desenho, Edição de Imagem, Design de Interfaces Gráficas, Criatividade, entre outras. Conhecimento que pode levar para oportunidades de criação e produção de peças gráficas para o meio digital, criação de logotipos, marcas, embalagens, criação visual de sites, blogs, banners para a internet, desenvolvimento de anúncios, panfletos, cartazes, etc. </div>
+                `;
+
                 infografico.update = updateMapPainel;
             }
 
@@ -448,3 +455,4 @@ function coordenadasTan(x,y) {
 
     return t;
 }
+
