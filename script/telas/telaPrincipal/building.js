@@ -10,16 +10,11 @@ class Building {
         this.button = new Button( loadImage('./assets/rocket.png'), 1200 - 50, 50, 50, 50 );
         this.glowing = glowing;
         this.func;
+        this.clicked = false;
     }
 
 	draw() {
         image( this.spr, this.pos.x, this.pos.y );
-        
-        if( this.collision() )
-        {
-            fill(0,255,0);
-            rect(0,0,100,100)
-        }
     }
 
     collision() {
