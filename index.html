@@ -7,7 +7,31 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:600,900&display=swap" rel="stylesheet"> 
     <title>Document</title>
     <style>
-      #gamestartscreen{
+      .painel {
+        position: absolute;
+        margin-top: 16%;
+      }
+
+      .tituloParent {
+        width: 100%; 
+        text-align: center; 
+        font-size: 4vw; 
+        font-weight: 900; 
+      }
+
+      .titulo {
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .informacao { 
+        font-size: 2vw; 
+        padding: 2% 6% 0 6%;
+        font-weight: 200; 
+        text-align: center; 
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      #gamestartscreen {
         width:80%;
         position:relative;
         left: 0px;
@@ -16,7 +40,7 @@
         margin: auto;
       }
 
-      canvas{
+      canvas {
         position:relative;
         top:0;
         bottom:0;
@@ -24,6 +48,10 @@
         left:0;
         margin:auto;
         z-index: 1;
+      }
+
+      body {
+        margin: 0;
       }
     </style>
 </head>

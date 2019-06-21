@@ -1,4 +1,238 @@
-﻿updateIntrodution = function(){
+﻿planetsNames = ['terra','audiovisual','design','jogos','sistemas'];
+
+textPredios = {
+    'iniciais' : {
+        '1' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > O QUE É O MEDIADAY? </span>
+            </div>
+            <div class="informacao" >
+            O Media Day é um projeto de extensão itinerante da Universidade Federal do Ceará com o objetivo de difundir conhecimento e despertar as habilidades dos participantes através do contato direto e prático com as áreas de estudo do curso de Sistemas e Mídias Digitais. A principal ideia do projeto é divulgar em diversas cidades do Estado do Ceará os trabalhos desenvolvidos no curso e estimular o interesse pela Universidade. São ofertadas disciplinas nas áreas de Design, Audiovisual, Sistemas e Jogos. O Media Day é gratuito e aberto a toda a sociedade. 
+            </div>
+        </div>    
+        `
+    },
+    'design' : {
+        'lapis' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > DESENHO </span>
+            </div>
+            <div class="informacao" >
+            Na subárea de desenho, o participante encontrará oficinas tanto de desenho analógico quanto de desenho digital. As oficinas de desenho analógico trazem conhecimento à respeito das melhores técnicas para desenho à mão livre, pintura com lápis de cor, entre outros. O desenho digital é feito a partir de processos digitais, e os participantes irão aprender a utilizar softwares de computador e equipamentos que auxiliem na produção de ilustrações digitais, pintura digital, entre outros. 
+            </div>
+        </div>    
+        `, 
+        'criatividade' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > CRIATIVIDADE </span>
+            </div>
+            <div class="informacao" >
+            São oferecidas oficinas que estimulam a produção criativa do participante e sua capacidade de invenção, reinvenção e inovação. Serão apresentados conceitos que tornarão amplo o repertório de cada pessoa, permitindo que a partir desse repertório e da sua vivência, criem novas ideias.
+            </div>
+        </div>
+        `,
+        'interface' : `
+        <div class="painel" >
+            <div style="width: 100%; text-align: center; font-size: 4vw; font-weight: 900">
+                <span class="titulo" > DESIGN DE INTERFACES GRÁFICAS </span>
+            </div>
+            <div class="informacao" >
+            Na subárea de Design de Interfaces Gráficas, serão apresentados os conceitos de design de interfaces, usabilidade, design gráfico, entre outros. Além de aprender as técnicas para utilização de softwares da área, os participantes também serão orientados sobre conceitos de usabilidade, que permitem que se pense na interação do usuário com a sua interface gráfica.
+            </div>
+        </div>
+        `,
+        'edicao' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > EDIÇÃO DE IMAGEM </span>
+            </div>
+            <div class="informacao" >
+            Nas oficinas relacionadas à edição de imagem os participantes irão aprender a alterar e manusear os conteúdos de imagens de acordo com o seu objetivo de uso. Além disso, é ensinado também como utilizar os softwares específicos para edição de imagens, como Photoshop e Gimp.
+            </div>
+        </div>    
+        `,
+        'planetario' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > DESIGN </span>
+            </div>
+            <div class="informacao" >
+            Na área de Design, o projeto apresenta oficinas de Desenho, Edição de Imagem, Design de Interfaces Gráficas, Criatividade, entre outras. Conhecimento que pode levar para oportunidades de criação e produção de peças gráficas para o meio digital, criação de logotipos, marcas, embalagens, criação visual de sites, blogs, banners para a internet, desenvolvimento de anúncios, panfletos, cartazes, etc. </div>
+        </div>
+        ` 
+    },
+    'audiovisual' : {
+        '3d' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > MODELAGEM 3D </span>
+            </div>
+            <div class="informacao" >
+            As oficinas relacionadas à Modelagem 3D, apresentam como utilizar softwares de modelagem e as diversas técnicas que podem ser utilizadas para modelar. A modelagem 3D também traz conhecimentos que podem ser utilizados na área de Animação.
+        </div>
+        `,
+        'animacao' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > ANIMAÇÃO </span>
+            </div>
+            <div class="informacao" >
+            As oficinas de Animação trazem conceitos de desenho para criação de filmes quadro a quadro. Desenvolvendo e produzindo animações digitais ou analógicas, usando técnicas 2D (bidimensional), 3D (tridimensional), stop motion, entre outras.
+        </div>
+        `,
+        'fotografia' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > FOTOGRAFIA </span>
+            </div>
+            <div class="informacao" >
+            Na subárea de fotografia, os participantes aprenderão técnicas fotográficas e diferentes orientações sobre como utilizar os equipamentos e como aprimorar sua forma de enxergar oportunidades de fotografar.
+        </div>
+        `,
+        'narrativas' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > NARRATIVAS </span>
+            </div>
+            <div class="informacao" >
+            Nas oficinas de Narrativas, os participantes serão orientados sobre conceitos audiovisuais para a criação de roteiros a partir da sua criatividade. São apresentados também técnicas e softwares que auxiliarão nessa produção.
+        </div>
+        `,
+        'planetario' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > AUDIOVISUAL </span>
+            </div>
+            <div class="informacao" >
+            Na área de Audiovisual, são oferecidas oficinas de Narrativas, Fotografia, Modelagem 3D, Animação, entre outras. A área de Audiovisual permite a participação produção de vídeos, cobertura de eventos, vídeos institucionais, videoaulas, animações, vídeos publicitários, documentais, institucionais e jornalísticos, vinhetas, etc. 
+        </div>
+        ` 
+    },
+    'sistemas' : {
+        'logica' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > LÓGICA DE PROGRAMAÇÃO </span>
+            </div>
+            <div class="informacao" >
+            Na subárea de Lógica de Programação é ensinado o modo de escrever programas de computador, que mais tarde serão implementados, utilizando algoritmos. Um algoritmo é a sequência de passos para se executar uma função. 
+        </div>
+        `,
+        'arduino' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > ARDUÍNO </span>
+            </div>
+            <div class="informacao" >
+            Nas oficinas de Arduíno é ensinado como utilizar o hardware único, de placa única, para criar prototipagens eletrônicas. O microcontrolador cria ferramentas fáceis de se usar por principiantes e profissionais para automatização, criação de robôs, entre outros. 
+        </div>
+        `,
+        'web' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > DESENVOLVIMENTO WEB </span>
+            </div>
+            <div class="informacao" >
+            Na subárea de Desenvolvimento Web são ensinados conceitos de programação utilizados para desenvolvimento de sites, entre outros.
+        </div>
+        `,
+        'bd' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > BANCO DE DADOS </span>
+            </div>
+            <div class="informacao" >
+            Nas oficinas relacionadas a Banco de Dados, são apresentados softwares, recursos e conceitos a respeito da criação, manipulação e interação das informações de um Banco de Dados com os usuários.
+        </div>
+        `,
+        'planetario' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > SISTEMAS </span>
+            </div>
+            <div class="informacao" >
+            Na área de Sistemas, são apresentadas oficinas relacionadas à Lógica de Programação, Arduíno, Desenvolvimento Web, Banco de Dados, entre outras. O conhecimento na área permite atuação em projetar e desenvolver sistemas, modernizar o processo de comunicação de uma empresa, criando, adaptando e instalando programas, fazer a interligação entre a administração da empresa e a área de computação, desenvolver softwares para planejar e administrar rotas, sistemas de armazenagem e o tempo de entrega de produtos, por exemplo.
+        </div>
+        ` 
+    },
+    'jogos' : {
+        'jogos' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > CONCEPÇÃO DE JOGOS </span>
+            </div>
+            <div class="informacao" >
+            Nas oficinas de Concepção de Jogos são apresentados os conceitos fundamentais para o desenvolvimento de um jogo digital ou analógico. 
+        </div>
+        `,
+        'personagens' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > CRIAÇÃO DE PERSONAGENS PARA JOGOS </span>
+            </div>
+            <div class="informacao" >
+            Na subárea de Criação de Personagens para Jogos, os participantes são introduzidos a conceitos e técnicas que facilitem o desenvolvimento de personagens para suas narrativas de jogos, assim como o conceito visual do personagem, desenho, entre outros.
+        </div>
+        `,
+        'tabuleiro' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > JOGOS DE TABULEIRO </span>
+            </div>
+            <div class="informacao" >
+            Nas oficinas relacionadas a Jogos de Tabuleiro são ensinadas técnicas para a produção de jogos analógicos de tabuleiro.
+        </div>
+        `,
+        'planetario' : `
+        <div class="painel" >
+            <div class="tituloParent" >
+                <span class="titulo" > JOGOS </span>
+            </div>
+            <div class="informacao" >
+            Na área de Jogos, as oficinas são relacionadas a Concepção de Jogos, Criação de Personagens para Jogos, Jogos de Tabuleiro, entre outros. O mercado da área permite atuação na produção direta de games, na concepção de ambientes e cenários 3D, além de em projetos ligados ao cinema, televisão, teatro, animações, propaganda, educação e entretenimento. 
+        </div>
+        ` 
+    }
+}
+
+rocketLoading = function(){
+    ellipse(0,-240,430,560);
+    ellipse(0,0,260,560);
+    fill(3,18,45);
+    ellipse(0,-340,270,220);
+    rect(-134,-490,270,188);
+    fill(255,0,0);
+    rect(-134/2,-490,270/2,188);
+    fill(255);
+    rect(-94,-310,188,300);
+}
+
+var imagesToLoad = 0, imagesLoaded = 0, angFactToLoad = 0;
+
+updateLoading = function(){
+    fill(255,0,0);
+    arc(1920/2, 1080/2, 1080/1.182, 1080/1.182, 0, angFactToLoad * imagesLoaded );
+    fill(3,18,45);
+    ellipse(1920/2, 1080/2, 1080/1.26, 1080/1.26);
+    fill(255);
+    ellipse(1920/2, 1080/2, 1080/2, 1080/2);
+
+    noStroke();
+
+    push()
+    translate(1920/2 + cos(angFactToLoad * imagesLoaded ) * 1080/2.5 , 1080/2 + sin(angFactToLoad * imagesLoaded ) * 1080/2.5 );
+    rotate(angFactToLoad * imagesLoaded );
+    scale(0.2);
+    rocketLoading();
+    pop()
+
+    if( imagesToLoad == imagesLoaded ) this.update = updateIntrodution;
+}
+
+updateIntrodution = function(){
     this.rocket.ang = 3.14;
     this.renderPlanets();
     this.renderAstrounaut();
@@ -16,21 +250,15 @@ updatePainel = function(){
     this.rocket.draw();
 
     var div = document.getElementById("gamestartscreen"); 
-    div.innerHTML = `
-    <div style="width: 100%; text-align: center; font-size: 4vw; font-weight: 900">
-        <span style="font-family: 'Montserrat', sans-serif" > O QUE É O MEDIA DAY? </span>
-    </div>
-    <div style="position: absolute; font-size: 2vw; padding: 6%; font-weight: 600; text-align: center; font-family: 'Montserrat', sans-serif">
-    O Media Day é um projeto de extensão itinerante da Universidade Federal do Ceará com o objetivo de difundir conhecimento e despertar as habilidades dos participantes através do contato direto e prático com as áreas de estudo do curso de Sistemas e Mídias Digitais. A principal ideia do projeto é divulgar em diversas cidades do Estado do Ceará os trabalhos desenvolvidos no curso e estimular o interesse pela Universidade. São ofertadas disciplinas nas áreas de Design, Audiovisual, Sistemas e Jogos. O Media Day é gratuito e aberto a toda a sociedade. 
-    </div>
-    `;
+    div.innerHTML = textPredios['iniciais']['1']; 
     document.getElementById("gamestartscreen").style.display = "block";
     this.painel.draw();
     ///console.log(this.painel);
     this.buttonINT.draw();
 
-    if( this.buttonINT.collision() && mouseIsPressed && this.buttonINT.func != undefined ){
+    if( this.buttonINT.clicked && this.buttonINT.func != undefined ){
         this.buttonINT.func();
+        this.buttonINT.clicked = false;
     }
 }
 
@@ -51,26 +279,29 @@ updateLaunch = function(){
     this.renderRocket();
 
     for (var i = 1; i < this.planets.length ; i++) {
-        //console.log( planets[i].pos.dist( rocket.pos ) );
-        //text( planets[i].pos.dist( rocket.pos ), planets[i].pos.x + 200, planets[i].pos.y )
-        //text( planets[i].radius + 40, planets[i].pos.x + 200, planets[i].pos.y + 40 )
-        if( this.planets[i].pos.dist( this.rocket.pos ) < this.planets[i].radius + this.rocket.radius + this.distance_minus_planet + 50 ){
-            //this.rocket.vel = this.rocket.vel.mult(0.8);
-            //this.rocket.vel
-            let v1 = this.rocket.vel.heading() - 3.14/2;
-            let v2 = coordenadasTan( this.rocket.pos.x - this.planets[i].pos.x , this.rocket.pos.y - this.planets[i].pos.y );
-            this.rocket.ang = ( v1 + v2 )/2;
+        if( this.planets[i].mass != 0 ) {
+            if( this.planets[i].pos.dist( this.rocket.pos ) < this.planets[i].radius + this.rocket.radius + this.distance_minus_planet + 50 ){
+                let v1 = this.rocket.vel.heading() - 3.14/2;
+                let v2 = coordenadasTan( this.rocket.pos.x - this.planets[i].pos.x , this.rocket.pos.y - this.planets[i].pos.y );
+                this.rocket.ang = ( v1 + v2 )/2;
 
-            fill(255,0,0);
-            line( this.planets[i].pos.x + cos(v2), this.planets[i].pos.x + sin(v2), this.planets[i].pos.x + cos(v2) * 34, this.planets[i].pos.x + sin(v2) * 34  )
-        }
-        if( this.planets[i].pos.dist( this.rocket.pos ) < this.planets[i].radius + this.rocket.radius + this.distance_minus_planet ){
-            this.rocket.planet = this.planets[i];
-            this.rocket.dist = this.planets[i].pos.dist( this.rocket.pos );
-            this.rocket.stop = true;
-            this.rocket.orbitAng = coordenadasTan( this.rocket.pos.x - this.planets[i].pos.x , this.rocket.pos.y - this.planets[i].pos.y );
-            //atan2( this.planets[i].pos.dist( this.rocket.pos ).y, this.planets[i].pos.dist( this.rocket.pos ).x )
-            this.update = updateOrbit;
+                fill(255,0,0);
+                line( this.planets[i].pos.x + cos(v2), this.planets[i].pos.x + sin(v2), this.planets[i].pos.x + cos(v2) * 34, this.planets[i].pos.x + sin(v2) * 34  )
+            }
+            if( this.planets[i].pos.dist( this.rocket.pos ) < this.planets[i].radius + this.rocket.radius + this.distance_minus_planet ){
+                this.rocket.planet = this.planets[i];
+                
+                if( this.currentPlanet != undefined ) 
+                    this.planets[ planetsNames.indexOf( this.currentPlanet ) ].mass = 250;
+            
+                this.currentPlanet = planetsNames[i];
+                this.planets[i].mass = 0;
+                this.rocket.dist = this.planets[i].pos.dist( this.rocket.pos );
+                this.rocket.stop = true;
+                this.rocket.orbitAng = coordenadasTan( this.rocket.pos.x - this.planets[i].pos.x , this.rocket.pos.y - this.planets[i].pos.y );
+                //atan2( this.planets[i].pos.dist( this.rocket.pos ).y, this.planets[i].pos.dist( this.rocket.pos ).x )
+                this.update = updateOrbit;
+            }
         }
     }
 }
@@ -97,20 +328,22 @@ updateMap = function(){
     this.renderPlanets();
     this.renderAstrounaut();
     this.rocket.draw();
-    this.map.draw();
+    this.map[ this.currentPlanet ].draw();
 
     document.getElementById("gamestartscreen").style.display = "none";
 
-    for( var i=0; i<this.map.build.length; i++)
-        this.map.build[i].draw();
+    for( var i=0; i<this.map[ this.currentPlanet ].build.length; i++)
+        this.map[ this.currentPlanet ].build[i].draw();
 
-    for( var i=0; i<this.map.build.length; i++)
-        if( this.map.build[i].collision() )
-            this.map.build[i].glowing.draw();
+    for( var i=0; i<this.map[ this.currentPlanet ].build.length; i++)
+        if( this.map[ this.currentPlanet ].build[i].collision() )
+            this.map[ this.currentPlanet ].build[i].glowing.draw();
 
-    for( var i=0; i<this.map.build.length; i++)
-        if( this.map.build[i].collision() && mouseIsPressed && this.map.build[i].func != undefined ){
-            this.map.build[i].func();
+    for( var i=0; i<this.map[ this.currentPlanet ].build.length; i++)
+        if( this.map[ this.currentPlanet ].build[i].clicked && this.map[ this.currentPlanet ].build[i].func != undefined ){
+            //console.log( "predio", this.map[ this.currentPlanet ].build[i] );
+            this.map[ this.currentPlanet ].build[i].func();
+            this.map[ this.currentPlanet ].build[i].clicked = false;
         }
 }
 
@@ -120,47 +353,232 @@ updateMapPainel = function(){
     this.rocket.draw();
 
     document.getElementById("gamestartscreen").style.display = "block";
-    this.map.draw();
+    this.map[ this.currentPlanet ].draw();
 
-    this.map.build[0].draw();
-    this.map.build[1].draw();
-    this.map.build[2].draw();
-    this.map.build[3].draw();
-    this.map.build[4].draw();
+    for( var i=0; i<this.map[ this.currentPlanet ].build.length; i++)
+        this.map[ this.currentPlanet ].build[i].draw();
+
     //this.map.build[5].draw();
 
     this.painel.draw();
     this.buttonDSN.draw();
 
-    if( this.buttonDSN.collision() && mouseIsPressed && this.buttonDSN.func != undefined ){
+    if( infografico.buttonDSN.clicked && this.buttonDSN.func != undefined ){
         this.buttonDSN.func();
+        infografico.buttonDSN.clicked = false;
     }
+}
+
+imageLoaded = function(){
+    imagesLoaded++;
 }
 
 class Infografico
 {
     constructor(){
-        this.background = loadImage('assets/tela_base.png');
-        this.planets = [];
-        this.planetsSpr = [ loadImage('assets/terra.png'),
-                            loadImage('assets/PLANETA - AUDIOVISUAL.png'),
-                            loadImage('assets/PLANETA - DESING.png'), 
-                            loadImage('assets/PLANETA - JOGOS.png'), 
-                            loadImage('assets/PLANETA - SISTEMA.png') ];
-        this.planets.push( new Planet( this.planetsSpr[0],  680, 510,   0,  0) );
-        this.planets.push( new Planet( this.planetsSpr[1],  600, 210, 100,  0) ); //900
-        this.planets.push( new Planet( this.planetsSpr[2], 1000, 648, 100, 65) ); //900
-        this.planets.push( new Planet( this.planetsSpr[3],  346, 596, 100, 75) ); //200
-        this.planets.push( new Planet( this.planetsSpr[4], 1180, 320, 100, 50) );
-        //this.planets.push( new Planet( this.planetsSpr[0], 946, 334, 75, 75) ); //X*/
+        this.currentPlanet = undefined;
 
+        this.sprites = { 
+            'planeta_terra' : loadImage('assets/terra.png', imageLoaded ),
+            'planeta_audiovisual' : loadImage('assets/PLANETA - AUDIOVISUAL.png', imageLoaded ),
+            'planeta_design' : loadImage('assets/PLANETA - DESING.png', imageLoaded ),
+            'planeta_jogos' : loadImage('assets/PLANETA - JOGOS.png', imageLoaded ),
+            'planeta_sistemas' : loadImage('assets/PLANETA - SISTEMA.png', imageLoaded ),
+            'astronaut' : loadImage('assets/astronaut.png', imageLoaded ),
+
+            'design_map' : loadImage('assets/DESIGN/DESIGN - BASE MAPA.png', imageLoaded ),
+            'design_popup' : loadImage('assets/POPUP - DESIGN.png', imageLoaded ),
+            'design_lapis' : loadImage('assets/DESIGN/predio_lapis.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['design_lapis'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'design_lapis_brilho' : loadImage('assets/DESIGN/predio_lapis_brilho.png', imageLoaded ),
+            'design_criatividade' : loadImage('assets/DESIGN/predio_criatividade.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['design_criatividade'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }), 
+            'design_criatividade_brilho' : loadImage('assets/DESIGN/predio_criatividade_brilho.png', imageLoaded ),
+            'design_interface' : loadImage('assets/DESIGN/predio_interface.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['design_interface'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }), 
+            'design_interface_brilho' : loadImage('assets/DESIGN/predio_interface_brilho.png', imageLoaded ),
+            'design_edicao' : loadImage('assets/DESIGN/predio_edicao.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['design_edicao'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }), 
+            'design_edicao_brilho' : loadImage('assets/DESIGN/predio_edicao_brilho.png', imageLoaded ),
+            'design_planetario' : loadImage('assets/DESIGN/predio_planetario.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['design_planetario'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }), 
+            'design_planetario_brilho' : loadImage('assets/DESIGN/predio_planetario_brilho.png', imageLoaded ),
+            'design_voltar' : loadImage('assets/DESIGN/voltar_design.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['design_voltar'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }), 
+            'design_fechar' : loadImage('assets/DESIGN/design_fechar.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['design_fechar'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+
+            'sistemas_map' : loadImage('assets/SISTEMAS/SISTEMAS - BASE.png', imageLoaded ),
+            'sistemas_popup' : loadImage('assets/POPUP - DESIGN.png', imageLoaded ),
+            'sistemas_arduino' : loadImage('assets/SISTEMAS/predio_arduino.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['sistemas_arduino'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'sistemas_arduino_brilho' : loadImage('assets/SISTEMAS/predio_arduino_brilho.png', imageLoaded ),
+            'sistemas_bd' : loadImage('assets/SISTEMAS/predio_bd.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['sistemas_bd'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'sistemas_bd_brilho' : loadImage('assets/SISTEMAS/predio_bd_brilho.png', imageLoaded ),
+            'sistemas_prog' : loadImage('assets/SISTEMAS/predio_prog.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['sistemas_prog'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'sistemas_prog_brilho' : loadImage('assets/SISTEMAS/predio_prog_brilho.png', imageLoaded ),
+            'sistemas_web' : loadImage('assets/SISTEMAS/predio_web.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['sistemas_web'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'sistemas_web_brilho' : loadImage('assets/SISTEMAS/predio_web_brilho.png', imageLoaded ),
+            'sistemas_planetario' : loadImage('assets/SISTEMAS/predio_planetario.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['sistemas_planetario'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }), 
+            'sistemas_planetario_brilho' : loadImage('assets/SISTEMAS/predio_planetario_brilho.png', imageLoaded ),
+            'sistemas_fechar' : loadImage('assets/DESIGN/design_fechar.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['sistemas_fechar'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+
+            'jogos_map' : loadImage('assets/JOGOS/JOGOS - BASE.png', imageLoaded ),
+            'jogos_popup' : loadImage('assets/POPUP - DESIGN.png', imageLoaded ),
+            'jogos_boneco' : loadImage('assets/JOGOS/predio_boneco.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['jogos_boneco'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'jogos_boneco_brilho' : loadImage('assets/JOGOS/predio_boneco_brilho.png', imageLoaded ),
+            'jogos_jogos' : loadImage('assets/JOGOS/predio_jogos.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['jogos_jogos'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'jogos_jogos_brilho' : loadImage('assets/JOGOS/predio_jogos_brilho.png', imageLoaded ),
+            'jogos_tabuleiro' : loadImage('assets/JOGOS/predio_tabuleiro.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['jogos_tabuleiro'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'jogos_tabuleiro_brilho' : loadImage('assets/JOGOS/predio_tabuleiro_brilho.png', imageLoaded ),
+            'jogos_planetario' : loadImage('assets/JOGOS/predio_planetario.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['jogos_planetario'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }), 
+            'jogos_planetario_brilho' : loadImage('assets/JOGOS/predio_planetario_brilho.png', imageLoaded ),
+            'jogos_fechar' : loadImage('assets/DESIGN/design_fechar.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['jogos_fechar'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+
+            'audiovisual_map' : loadImage('assets/AUDIOVISUAL/AUDIO - BASE MAPA.png', imageLoaded ),
+            'audiovisual_popup' : loadImage('assets/POPUP - DESIGN.png', imageLoaded ),
+            'audiovisual_3d' : loadImage('assets/AUDIOVISUAL/predio_3d.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['audiovisual_3d'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'audiovisual_3d_brilho' : loadImage('assets/AUDIOVISUAL/predio_3d_brilho.png', imageLoaded ),
+            'audiovisual_animacao' : loadImage('assets/AUDIOVISUAL/predio_animacao.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['audiovisual_animacao'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'audiovisual_animacao_brilho' : loadImage('assets/AUDIOVISUAL/predio_animacao_brilho.png', imageLoaded ),
+            'audiovisual_fotografia' : loadImage('assets/AUDIOVISUAL/predio_fotografia.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['audiovisual_fotografia'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'audiovisual_fotografia_brilho' : loadImage('assets/AUDIOVISUAL/predio_fotografia_brilho.png', imageLoaded ),
+            'audiovisual_narrativas' : loadImage('assets/AUDIOVISUAL/predio_narrativas.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['audiovisual_narrativas'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'audiovisual_narrativas_brilho' : loadImage('assets/AUDIOVISUAL/predio_narrativas_brilho.png', imageLoaded ),
+            'audiovisual_planetario' : loadImage('assets/AUDIOVISUAL/predio_planetario.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['audiovisual_planetario'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }), 
+            'audiovisual_planetario_brilho' : loadImage('assets/AUDIOVISUAL/predio_planetario_brilho.png', imageLoaded ),
+            'audiovisual_fechar' : loadImage('assets/DESIGN/design_fechar.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['audiovisual_fechar'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+        };
+
+        imagesToLoad = Object.keys( this.sprites ).length;
+        angFactToLoad = 6.28/imagesToLoad;
+
+        this.planets = [];
+        this.planets.push( new Planet( this.sprites['planeta_terra'],  920, 610,   0,  0) );
+        this.planets.push( new Planet( this.sprites['planeta_audiovisual'],  760, 250, 140, 250) ); //900
+        this.planets.push( new Planet( this.sprites['planeta_design'], 1260, 800, 140, 250) ); //900
+        this.planets.push( new Planet( this.sprites['planeta_jogos'],  440, 750, 140, 250) ); //200
+        this.planets.push( new Planet( this.sprites['planeta_sistemas'], 1480, 400, 140, 250) );
+        
         let cnv = createCanvas(1920, 1080);
         cnv.id("mycanvas");
         cnv.parent("infografico");
 
         let x = this.planets[0].pos.x + cos( 45) * ( this.planets[0].radius + 15 ) - 50;
         let y = this.planets[0].pos.y + sin(-45) * ( this.planets[0].radius + 15 ) - 25;
-        this.astronautSpr =  loadImage('assets/astronaut.png');
+        this.astronautSpr = this.sprites['astronaut'];
          
         this.astronaut = new Player( x, y, 0, 0, 255, 255, 30, 15, false, this.astronautSpr );
         this.astronaut.orbit = function(body){};
@@ -171,12 +589,12 @@ class Infografico
         
         this.shoot = new Shooter( this.rocket );
 
-        this.space = loadImage('assets/space.jpg');
+        //this.space = loadImage('assets/space.jpg');
 
         this.distance_minus_planet = 5;
-        this.painelSpr = loadImage('assets/POPUP - DESIGN.png')
+        this.painelSpr = this.sprites['design_popup'];
 
-        var b = new Button( loadImage('assets/DESIGN/design_fechar.png'),  0, 0, 680, 510, 
+        var b = new Button( this.sprites['design_fechar'],  0, 0, 680, 510, 
                             function(){ 
                                 document.getElementById("gamestartscreen").style.display = "none";
                                 infografico.update = updateInitial; 
@@ -184,142 +602,15 @@ class Infografico
                           );
         this.painel = new Painel( this.painelSpr, 10, 10, 400, 400, b );
 
-        this.map = new Mapa( loadImage('assets/DESIGN/DESIGN - BASE MAPA.png'), 0, 0);
-        this.map.build = [];
+        this.map = {};
         
-        this.lapis = loadImage('assets/DESIGN/predio_lapis.png', img => {
-            img.loadPixels();
-            img.pontos = infografico.lapis.imageData.data;
-            img.updatePixels();
-        });
-        this.criatividade = loadImage('assets/DESIGN/predio_criatividade.png', img => {
-            img.loadPixels();
-            img.pontos = infografico.criatividade.imageData.data;
-            img.updatePixels();
-        });
-        this.interface = loadImage('assets/DESIGN/predio_interface.png', img => {
-            img.loadPixels();
-            img.pontos = infografico.interface.imageData.data;
-            img.updatePixels();
-        });
-        this.edicao = loadImage('assets/DESIGN/predio_edicao.png', img => {
-            img.loadPixels();
-            img.pontos = infografico.edicao.imageData.data;
-            img.updatePixels();
-        });
-        this.planetario = loadImage('assets/DESIGN/predio_planetario.png', img => {
-            img.loadPixels();
-            img.pontos = infografico.planetario.imageData.data;
-            img.updatePixels();
-        });
-        this.voltar_design = loadImage('assets/DESIGN/voltar_design.png', img => {
-            img.loadPixels();
-            img.pontos = infografico.voltar_design.imageData.data;
-            img.updatePixels();
-        });
-        this.fechar = loadImage('assets/DESIGN/design_fechar.png', img => {
-            img.loadPixels();
-            img.pontos = infografico.fechar.imageData.data;
-            img.updatePixels();
-        });
+        this.loadDesign();
+        this.loadSistemas();
+        this.loadJogos();
+        this.loadAudiovisual();
 
-        this.map.build.push( new Building( this.lapis, 0, 0, 680, 510, 
-            new Building( loadImage('assets/DESIGN/predio_lapis_brilho.png'), 0, 0, 680, 510 ) ) );
-        this.map.build[0].func =
-            function(){
-                var div = document.getElementById("gamestartscreen"); 
-                div.innerHTML = `
-                <div style="width: 100%; text-align: center; font-size: 4vw; font-weight: 900">
-                    <span style="font-family: 'Montserrat', sans-serif" > DESENHO </span>
-                </div>
-                <div style="position: absolute; font-size: 2vw; padding: 6%; font-weight: 200; text-align: center; font-family: 'Montserrat', sans-serif">
-                Na subárea de desenho, o participante encontrará oficinas tanto de desenho analógico quanto de desenho digital. As oficinas de desenho analógico trazem conhecimento à respeito das melhores técnicas para desenho à mão livre, pintura com lápis de cor, entre outros. O desenho digital é feito a partir de processos digitais, e os participantes irão aprender a utilizar softwares de computador e equipamentos que auxiliem na produção de ilustrações digitais, pintura digital, entre outros. 
-                </div>
-                `;
-                infografico.update = updateMapPainel;
-            }
-
-        this.map.build.push( new Building( this.criatividade, 0, 0, 680, 510, 
-            new Building( loadImage('assets/DESIGN/predio_criatividade_brilho.png'), 0, 0, 680, 510 ) ) );
-        this.map.build[1].func =
-            function(){
-                var div = document.getElementById("gamestartscreen"); 
-                div.innerHTML = `
-                <div style="width: 100%;text-align: center; font-size: 4vw; font-weight: 900">
-                    <span style="font-family: 'Montserrat', sans-serif" > CRIATIVIDADE </span>
-                </div>
-                <div style="position: absolute; font-size: 2vw; padding: 6%; font-weight: 600; text-align: center; font-family: 'Montserrat', sans-serif">
-                São oferecidas oficinas que estimulam a produção criativa do participante e sua capacidade de invenção, reinvenção e inovação. Serão apresentados conceitos que tornarão amplo o repertório de cada pessoa, permitindo que a partir desse repertório e da sua vivência, criem novas ideias.
-                </div>
-                `;
-                infografico.update = updateMapPainel;
-            }
-
-        this.map.build.push( new Building( this.interface, 0, 0, 680, 510, 
-            new Building( loadImage('assets/DESIGN/predio_interface_brilho.png'), 0, 0, 680, 510 ) ) );
-        this.map.build[2].func =
-            function(){
-                var div = document.getElementById("gamestartscreen"); 
-                div.innerHTML = `
-                <div style="width: 100%; text-align: center; font-size: 4vw; font-weight: 900">
-                    <span style="font-family: 'Montserrat', sans-serif" > DESIGN DE INTERFACES GRÁFICAS </span>
-                </div>
-                <div style="position: absolute; font-size: 2vw; padding: 6%; font-weight: 600; text-align: center; font-family: 'Montserrat', sans-serif">
-                Na subárea de Design de Interfaces Gráficas, serão apresentados os conceitos de design de interfaces, usabilidade, design gráfico, entre outros. Além de aprender as técnicas para utilização de softwares da área, os participantes também serão orientados sobre conceitos de usabilidade, que permitem que se pense na interação do usuário com a sua interface gráfica.
-                </div>
-                `;
-                infografico.update = updateMapPainel;
-            }
-
-        this.map.build.push( new Building( this.edicao, 0, 0, 680, 510, 
-            new Building( loadImage('assets/DESIGN/predio_edicao_brilho.png'), 0, 0, 680, 510 ) ) );
-        this.map.build[3].func =
-            function(){
-                var div = document.getElementById("gamestartscreen"); 
-                div.innerHTML = `
-                <div style="width: 100%;text-align: center; font-size: 4vw; font-weight: 900">
-                    <span style="font-family: 'Montserrat', sans-serif" > EDIÇÃO DE IMAGEM </span>
-                </div>
-                <div style="position: absolute; font-size: 2vw; padding: 6%; font-weight: 600; text-align: center; font-family: 'Montserrat', sans-serif">
-                Nas oficinas relacionadas à edição de imagem os participantes irão aprender a alterar e manusear os conteúdos de imagens de acordo com o seu objetivo de uso. Além disso, é ensinado também como utilizar os softwares específicos para edição de imagens, como Photoshop e Gimp.</div>
-                `;
-                infografico.update = updateMapPainel;
-            }
-
-        this.map.build.push( new Building( this.planetario, 0, 0, 680, 510, 
-            new Building( loadImage('assets/DESIGN/predio_planetario_brilho.png'), 0, 0, 680, 510 ) ) );
-        this.map.build[4].func =
-            function(){
-                var div = document.getElementById("gamestartscreen"); 
-                div.innerHTML = `
-                <div style="width: 100%;text-align: center; font-size: 4vw; font-weight: 900">
-                    <span style="font-family: 'Montserrat', sans-serif" > DESIGN </span>
-                </div>
-                <div style="position: absolute; font-size: 2vw; padding: 6%; font-weight: 600; text-align: center; font-family: 'Montserrat', sans-serif">
-                Na área de Design, o projeto apresenta oficinas de Desenho, Edição de Imagem, Design de Interfaces Gráficas, Criatividade, entre outras. Conhecimento que pode levar para oportunidades de criação e produção de peças gráficas para o meio digital, criação de logotipos, marcas, embalagens, criação visual de sites, blogs, banners para a internet, desenvolvimento de anúncios, panfletos, cartazes, etc. </div>
-                `;
-
-                infografico.update = updateMapPainel;
-            }
-
-        this.map.build.push( new Building( this.voltar_design, 0, 0, 680, 510, 
-            new Building( loadImage('assets/DESIGN/voltar_design.png'), 0, 0, 680, 510 ) ) );
-        this.map.build[5].func =
-            function(){
-                var div = document.getElementById("gamestartscreen"); 
-                div.innerHTML = "Erivan";
-                infografico.update = updateInitial;
-            }
-
-        this.buttonDSN = new Building( this.fechar, 0, 0, 680, 510, 
-            new Building( loadImage('assets/DESIGN/design_fechar.png'), 0, 0, 680, 510 ) );
-        this.buttonDSN.func =
-            function(){
-                infografico.update = updateMap;
-            }
-
-        this.buttonINT = new Building( this.fechar, 0, 0, 680, 510, 
-            new Building( loadImage('assets/DESIGN/design_fechar.png'), 0, 0, 680, 510 ) );
+        this.buttonINT = new Building( this.sprites['design_fechar'], 0, 0, 680, 510, 
+            new Building( this.sprites['design_fechar'], 0, 0, 680, 510 ) );
         this.buttonINT.func =
             function(){
                 var div = document.getElementById("gamestartscreen"); 
@@ -373,24 +664,149 @@ class Infografico
     }
 
     update(){
-        this.update = updateIntrodution;
+        this.update = updateLoading;
+    }
+
+    loadDesign(){
+        this.map['design'] = new Mapa( this.sprites['design_map'], 0, 0);
+        this.map['design'].clicked = false;
+        this.map['design'].build = [];
+        
+        this.map['design'].build.push( new Building( this.sprites['design_lapis'], 0, 0, 680, 510, 
+            new Building( this.sprites['design_lapis_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['design'].build[0].func = mostrarTexto(  textPredios['design']['lapis'] )
+
+        this.map['design'].build.push( new Building( this.sprites['design_criatividade'], 0, 0, 680, 510, 
+            new Building( this.sprites['design_criatividade_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['design'].build[1].func = mostrarTexto(  textPredios['design']['criatividade'] )
+
+        this.map['design'].build.push( new Building( this.sprites['design_interface'], 0, 0, 680, 510, 
+            new Building( this.sprites['design_interface_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['design'].build[2].func = mostrarTexto(  textPredios['design']['interface'] )
+
+        this.map['design'].build.push( new Building( this.sprites['design_edicao'], 0, 0, 680, 510, 
+            new Building(  this.sprites['design_edicao_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['design'].build[3].func = mostrarTexto( textPredios['design']['edicao'] );
+        
+        this.map['design'].build.push( new Building( this.sprites['design_planetario'], 0, 0, 680, 510, 
+            new Building(  this.sprites['design_planetario_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['design'].build[4].func = mostrarTexto( textPredios['design']['planetario'] );
+
+        this.map['design'].build.push( new Building( this.sprites['design_voltar'], 0, 0, 680, 510, 
+            new Building( this.sprites['design_voltar'], 0, 0, 680, 510 ) ) );
+        this.map['design'].build[5].func = function(){
+            infografico.update = updateInitial;
+        };
+
+        this.buttonDSN = new Building( this.sprites['design_fechar'], 0, 0, 680, 510, 
+            new Building( this.sprites['design_fechar'], 0, 0, 680, 510 ) );
+        this.buttonDSN.func =
+            function(){
+                infografico.update = updateMap;
+            }
+    }
+
+    loadSistemas(){
+        this.map['sistemas'] = new Mapa( this.sprites['sistemas_map'], 0, 0);
+        this.map['sistemas'].clicked = false;
+        this.map['sistemas'].build = [];
+
+        this.map['sistemas'].build.push( new Building( this.sprites['sistemas_arduino'], 0, 0, 680, 510, 
+            new Building( this.sprites['sistemas_arduino_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['sistemas'].build[0].func = mostrarTexto( textPredios['sistemas']['arduino'] );
+
+        this.map['sistemas'].build.push( new Building( this.sprites['sistemas_bd'], 0, 0, 680, 510, 
+            new Building( this.sprites['sistemas_bd_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['sistemas'].build[1].func = mostrarTexto( textPredios['sistemas']['bd'] );
+
+        this.map['sistemas'].build.push( new Building( this.sprites['sistemas_prog'], 0, 0, 680, 510, 
+            new Building( this.sprites['sistemas_prog_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['sistemas'].build[2].func = mostrarTexto( textPredios['sistemas']['logica'] );
+
+        this.map['sistemas'].build.push( new Building( this.sprites['sistemas_web'], 0, 0, 680, 510, 
+            new Building( this.sprites['sistemas_web_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['sistemas'].build[3].func = mostrarTexto( textPredios['sistemas']['web'] );
+
+        this.map['sistemas'].build.push( new Building( this.sprites['sistemas_planetario'], 0, 0, 680, 510, 
+            new Building( this.sprites['sistemas_planetario_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['sistemas'].build[4].func = mostrarTexto( textPredios['sistemas']['planetario'] );
+
+        this.map['sistemas'].build.push( new Building( this.sprites['design_voltar'], 0, 0, 680, 510, 
+            new Building( this.sprites['design_voltar'], 0, 0, 680, 510 ) ) );
+        this.map['sistemas'].build[5].func = function(){
+            infografico.update = updateInitial;
+        };
+    }
+    
+    loadJogos(){
+        this.map['jogos'] = new Mapa( this.sprites['jogos_map'], 0, 0);
+        this.map['jogos'].clicked = false;
+        this.map['jogos'].build = [];
+
+        this.map['jogos'].build.push( new Building( this.sprites['jogos_boneco'], 0, 0, 680, 510, 
+            new Building( this.sprites['jogos_boneco_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['jogos'].build[0].func = mostrarTexto( textPredios['jogos']['personagens'] );
+
+        this.map['jogos'].build.push( new Building( this.sprites['jogos_jogos'], 0, 0, 680, 510, 
+            new Building( this.sprites['jogos_jogos_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['jogos'].build[1].func = mostrarTexto( textPredios['jogos']['jogos'] );
+
+        this.map['jogos'].build.push( new Building( this.sprites['jogos_tabuleiro'], 0, 0, 680, 510, 
+            new Building( this.sprites['jogos_tabuleiro_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['jogos'].build[2].func = mostrarTexto( textPredios['jogos']['tabuleiro'] );
+
+        this.map['jogos'].build.push( new Building( this.sprites['jogos_planetario'], 0, 0, 680, 510, 
+            new Building( this.sprites['jogos_planetario_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['jogos'].build[3].func = mostrarTexto( textPredios['jogos']['planetario'] );
+
+        this.map['jogos'].build.push( new Building( this.sprites['design_voltar'], 0, 0, 680, 510, 
+            new Building( this.sprites['design_voltar'], 0, 0, 680, 510 ) ) );
+        this.map['jogos'].build[4].func = function(){
+            infografico.update = updateInitial;
+        };
+    }
+
+    loadAudiovisual(){
+        this.map['audiovisual'] = new Mapa( this.sprites['audiovisual_map'], 0, 0);
+        this.map['audiovisual'].clicked = false;
+        this.map['audiovisual'].build = [];
+
+        this.map['audiovisual'].build.push( new Building( this.sprites['audiovisual_3d'], 0, 0, 680, 510, 
+            new Building( this.sprites['audiovisual_3d_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['audiovisual'].build[0].func = mostrarTexto( textPredios['audiovisual']['3d'] );
+
+        this.map['audiovisual'].build.push( new Building( this.sprites['audiovisual_animacao'], 0, 0, 680, 510, 
+            new Building( this.sprites['audiovisual_animacao_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['audiovisual'].build[1].func = mostrarTexto( textPredios['audiovisual']['animacao'] );
+
+        this.map['audiovisual'].build.push( new Building( this.sprites['audiovisual_fotografia'], 0, 0, 680, 510, 
+            new Building( this.sprites['audiovisual_fotografia_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['audiovisual'].build[2].func = mostrarTexto( textPredios['audiovisual']['fotografia'] );
+
+        this.map['audiovisual'].build.push( new Building( this.sprites['audiovisual_narrativas'], 0, 0, 680, 510, 
+            new Building( this.sprites['audiovisual_narrativas_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['audiovisual'].build[3].func = mostrarTexto( textPredios['audiovisual']['narrativas'] );
+
+        this.map['audiovisual'].build.push( new Building( this.sprites['audiovisual_planetario'], 0, 0, 680, 510, 
+            new Building( this.sprites['audiovisual_planetario_brilho'], 0, 0, 680, 510 ) ) );
+        this.map['audiovisual'].build[4].func = mostrarTexto( textPredios['audiovisual']['planetario'] );
+
+        this.map['audiovisual'].build.push( new Building( this.sprites['design_voltar'], 0, 0, 680, 510, 
+            new Building( this.sprites['design_voltar'], 0, 0, 680, 510 ) ) );
+        this.map['audiovisual'].build[5].func = function(){
+            infografico.update = updateInitial;
+        };
     }
 }
 
 function setup(){
     infografico = new Infografico();
 
-    a = loadImage('./assets/rocket.png', img => {
-        img.loadPixels();
-        img.pontos = a.imageData.data;
-        img.updatePixels();
-    });
-
     bck1 = loadImage('./assets/ESTRELAS - 1.png');
     bck2 = loadImage('./assets/ESTRELAS - 2.png');
 
     bck = bck1;
-    back = loadImage('./assets/TELA_INICIAL.png');
+    back = loadImage('assets/referencia.png');
 }
 
 function sizeFactor(){
@@ -421,21 +837,34 @@ function draw(){
 function windowResized() {
     var valor = document.getElementById("mycanvas").offsetTop;
     resizeCanvas( windowWidth, (windowWidth ) * 0.5625);
-    document.getElementById("gamestartscreen").style.top = ( sizeFactor() * 100 + (valor + sizeFactor() * 200) ) + "px";
+    //document.getElementById("gamestartscreen").style.top = ( sizeFactor() * 100 + (valor + sizeFactor() * 200) ) + "px";
 }
 
-function mouseReleased(){
+
+function mouseClicked(){
     if( infografico.painel )
         if( infografico.painel.button )
-            infografico.painel.button.released = true;
+            infografico.painel.button.clicked = true;
 
     if( infografico.map )
         if( infografico.map.button )
-            infografico.map.button.released = true;
+            infografico.map.button.clicked = true;
 
-    if( infografico.buttonDSN )
-        if( infografico.buttonDSN )
-            infografico.buttonDSN.released = true;
+    if( infografico.buttonINT.collision() && infografico.buttonINT )
+        infografico.buttonINT.clicked = true;
+
+    if( infografico.buttonDSN.collision() && infografico.buttonDSN.func != undefined && infografico.update == updateMapPainel ){
+        infografico.buttonDSN.clicked = true;
+        //console.log("clicked");
+    }
+
+    for( var i=0; i<infografico.map[ infografico.currentPlanet ].build.length; i++)
+        if(     infografico.map[ infografico.currentPlanet ].build[i].collision() &&
+                infografico.map[ infografico.currentPlanet ].build[i].func != undefined &&
+                infografico.update == updateMap )
+        {
+            infografico.map[ infografico.currentPlanet ].build[i].clicked = true;
+        }
 }
 
 
@@ -456,3 +885,10 @@ function coordenadasTan(x,y) {
     return t;
 }
 
+mostrarTexto = function( texto ){
+    return function(){
+        var div = document.getElementById("gamestartscreen"); 
+        div.innerHTML = texto;
+        infografico.update = updateMapPainel;
+    }
+}
