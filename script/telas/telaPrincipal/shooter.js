@@ -34,7 +34,7 @@ class Shooter {
 			this.rocket.pos.y = this.y2;
 			this.rocket.ang = atan2(this.y1-this.y2,this.x1-this.x2) - 3.14/2;
 
-			this.force = int(dist(this.x1, this.y1, this.x2, this.y2))/10;
+			this.force = int(dist(this.x1, this.y1, this.x2, this.y2))/50;
 		}
 
 		if (!mouseIsPressed && this.shooting) {
@@ -42,6 +42,7 @@ class Shooter {
 			var direction = createVector();
 
 			if (this.force > 1) {
+				if( this.force > 5 ) this.force = 5;
 				if (this.x1 != this.x2) {
 					alpha = atan(abs((this.y2 - this.y1)) / abs((this.x2 - this.x1)));
 					this.force_axes.x = this.force * cos(alpha);
@@ -58,7 +59,7 @@ class Shooter {
 					if(this.y2 < this.y1) 	direction = createVector(-1, 1);
 					else 				  	direction = createVector(-1,-1);
 				}
-				console.log("forca");
+				
 				this.rocket = new Player(this.x2, this.y2, (direction.x * this.force_axes.x),(direction.y * this.force_axes.y), this.R, this.G, this.B, 20, false);
 				infografico.rocket = this.rocket;
 			}
@@ -87,7 +88,7 @@ class Shooter {
             	} else {
                 	rotate( atan2(this.y1-this.y2,this.x1-this.x2) );
            		}
-            	text(nfc(this.force,1,1), 0, -5);
+            	//text(nfc(this.force,1,1), 0, -5);
             pop();
         }
 	}

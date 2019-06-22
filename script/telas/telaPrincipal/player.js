@@ -69,10 +69,9 @@ class Player {
 			strokeWeight(4);
 			beginShape(LINES);
 			stroke(200);
-			for (var i=0; i < this.traj.length - 1; i++) {
+			for (var i=0; i < this.traj.length; i++) {
 				//stroke(this.R,this.G,this.B,i);
-				vertex(this.traj[i].x, this.traj[i].y);
-				vertex(this.traj[i+1].x, this.traj[i+1].y);
+				point(this.traj[i].x, this.traj[i].y);
 			}
 			endShape();
 			noStroke();

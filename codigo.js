@@ -21,6 +21,7 @@ textPredios = {
             </div>
             <div class="informacao" >
             Na subárea de desenho, o participante encontrará oficinas tanto de desenho analógico quanto de desenho digital. As oficinas de desenho analógico trazem conhecimento à respeito das melhores técnicas para desenho à mão livre, pintura com lápis de cor, entre outros. O desenho digital é feito a partir de processos digitais, e os participantes irão aprender a utilizar softwares de computador e equipamentos que auxiliem na produção de ilustrações digitais, pintura digital, entre outros. 
+            <br> Link: <a target="_blank" href="https://pt.wikipedia.org/wiki/Desenho"> https://pt.wikipedia.org/wiki/Desenho </a>
             </div>
         </div>    
         `, 
@@ -37,7 +38,7 @@ textPredios = {
         'interface' : `
         <div class="painel" >
             <div style="width: 100%; text-align: center; font-size: 4vw; font-weight: 900">
-                <span class="titulo" > DESIGN DE INTERFACES GRÁFICAS </span>
+                <span class="titulo" > DESIGN DE INTERFACES </span>
             </div>
             <div class="informacao" >
             Na subárea de Design de Interfaces Gráficas, serão apresentados os conceitos de design de interfaces, usabilidade, design gráfico, entre outros. Além de aprender as técnicas para utilização de softwares da área, os participantes também serão orientados sobre conceitos de usabilidade, que permitem que se pense na interação do usuário com a sua interface gráfica.
@@ -171,7 +172,7 @@ textPredios = {
         'personagens' : `
         <div class="painel" >
             <div class="tituloParent" >
-                <span class="titulo" > CRIAÇÃO DE PERSONAGENS PARA JOGOS </span>
+                <span class="titulo" > CRIAÇÃO DE PERSONAGENS <br> PARA JOGOS </span>
             </div>
             <div class="informacao" >
             Na subárea de Criação de Personagens para Jogos, os participantes são introduzidos a conceitos e técnicas que facilitem o desenvolvimento de personagens para suas narrativas de jogos, assim como o conceito visual do personagem, desenho, entre outros.
@@ -199,30 +200,68 @@ textPredios = {
 }
 
 rocketLoading = function(){
+    
+    fill(255,0,0);
     ellipse(0,-240,430,560);
+    
+    fill(255);
     ellipse(0,0,260,560);
+    rect(-131,-100,262,100);
+
     fill(3,18,45);
     ellipse(0,-340,270,220);
-    rect(-134,-490,270,188);
-    fill(255,0,0);
+    rect(-136,-480,272,148);
+
+    fill(255);
+    ellipse(0,-120,260,560);
+    
+    fill(3,18,45);
+    rect(-134/2-40,-498,270/2+80,188);
+
+    fill(255);
     rect(-134/2,-490,270/2,188);
+    
     fill(255);
     rect(-94,-310,188,300);
+    
+    fill(190,190,190);
+    rect(-106,-320,212,40);
+    rect(-130,-20,260,40);
+
+    fill(255,0,0);
+    ellipse(0,-280,60,360);
+    
+    fill(118,182,222);
+    ellipse(0,0,120,120);
+    
+    fill(255,0,0);
+    arc(0,200,178,160,0,3.14);
 }
 
 var imagesToLoad = 0, imagesLoaded = 0, angFactToLoad = 0;
 
 updateLoading = function(){
-    fill(255,0,0);
+    fill(255);
     arc(1920/2, 1080/2, 1080/1.182, 1080/1.182, 0, angFactToLoad * imagesLoaded );
     fill(3,18,45);
     ellipse(1920/2, 1080/2, 1080/1.26, 1080/1.26);
-    fill(255);
+    
+    fill(242, 242, 242);
     ellipse(1920/2, 1080/2, 1080/2, 1080/2);
 
+    strokeWeight(4);
+    fill(194, 194, 194);
+    stroke(255)
+    ellipse(1920/2-100, 1080/2+100, 1080/8, 1080/8);
+    ellipse(1920/2, 1080/2+140, 1080/16, 1080/16);
+    ellipse(1920/2-80, 1080/2-140, 1080/10, 1080/10);
+    ellipse(1920/2+10, 1080/2-60, 1080/12, 1080/12);
+    ellipse(1920/2+160, 1080/2+60, 1080/10, 1080/10);
+    ellipse(1920/2+160, 1080/2-40, 1080/16, 1080/16);
     noStroke();
 
     push()
+    //translate( 1920/2, 1080/2 );
     translate(1920/2 + cos(angFactToLoad * imagesLoaded ) * 1080/2.5 , 1080/2 + sin(angFactToLoad * imagesLoaded ) * 1080/2.5 );
     rotate(angFactToLoad * imagesLoaded );
     scale(0.2);
@@ -239,21 +278,20 @@ updateIntrodution = function(){
     this.rocket.draw();
 
     this.astronaut.ang = 0;
-    if( this.astronaut.pos.x < this.planets[0].pos.x + cos( 45) * ( this.planets[0].radius + 60 ) )
-        this.astronaut.pos.x += 4;
+    if( this.astronaut.pos.x < this.planets[0].pos.x + cos(45) * ( this.planets[0].radius + 120 ) )
+        this.astronaut.pos.x += 0.2;
     else this.update = updatePainel;
 }
 
 updatePainel = function(){
     this.renderPlanets();
-    this.renderAstrounaut();
     this.rocket.draw();
 
     var div = document.getElementById("gamestartscreen"); 
     div.innerHTML = textPredios['iniciais']['1']; 
     document.getElementById("gamestartscreen").style.display = "block";
-    this.painel.draw();
-    ///console.log(this.painel);
+    
+    this.painelInicial.draw();
     this.buttonINT.draw();
 
     if( this.buttonINT.clicked && this.buttonINT.func != undefined ){
@@ -262,21 +300,42 @@ updatePainel = function(){
     }
 }
 
+var learning = 0, know = false;
+
 updateInitial = function(){
     if (!mouseIsPressed && this.shoot.shooting) this.update = updateLaunch;
 
     this.renderPlanets();
     this.renderShooter();
-    this.renderAstrounaut();
     this.rocket.draw();
+
+    if( !know ){
+        if( learning > 100 ) learning = 0;
+
+        fill(255);
+        ellipse( this.rocket.pos.x, this.rocket.pos.y + learning, 50, 50 ); 
+        rect( this.rocket.pos.x-4, this.rocket.pos.y, 8, 100); 
+        noFill();
+        strokeWeight(4);
+        stroke(255);
+        ellipse( this.rocket.pos.x, this.rocket.pos.y + 100, 60, 60 ); 
+        noStroke(); 
+
+        learning+=1;
+    }
+    if( mouseIsPressed ) know = true;
 }
 
 updateLaunch = function(){
     this.renderPlanets();
-    this.renderShooter();this
-    this.renderAstrounaut();
+    this.renderShooter();
     this.rocket.drawTraj();
     this.renderRocket();
+
+    if( this.rocket.pos.y < 0 ) this.rocket.pos.y = 1080;
+    if( this.rocket.pos.y > 1080 ) this.rocket.pos.y = 0;
+    if( this.rocket.pos.x < 0) this.rocket.pos.x = 1920;
+    if( this.rocket.pos.x > 1920 ) this.rocket.pos.x = 0;
 
     for (var i = 1; i < this.planets.length ; i++) {
         if( this.planets[i].mass != 0 ) {
@@ -300,6 +359,14 @@ updateLaunch = function(){
                 this.rocket.stop = true;
                 this.rocket.orbitAng = coordenadasTan( this.rocket.pos.x - this.planets[i].pos.x , this.rocket.pos.y - this.planets[i].pos.y );
                 //atan2( this.planets[i].pos.dist( this.rocket.pos ).y, this.planets[i].pos.dist( this.rocket.pos ).x )
+                this.rocket.inicialAng = this.rocket.orbitAng;
+                
+                //if( this.rocket.vel.heading() < -2.09  )
+                    this.rocket.dir = 0.2;
+                //else {
+                //    this.rocket.dir =  0.2;
+                //}
+                console.log( "heading: " + this.rocket.vel.heading() );
                 this.update = updateOrbit;
             }
         }
@@ -308,8 +375,6 @@ updateLaunch = function(){
 
 updateOrbit = function(){
     this.renderPlanets();
-    this.renderShooter();
-    this.renderAstrounaut();
     this.rocket.ang = coordenadasTan( this.rocket.pos.x - this.rocket.planet.pos.x , this.rocket.pos.y - this.rocket.planet.pos.y ) + 3.14;
     this.rocket.drawTraj();
     this.rocket.draw();
@@ -317,17 +382,14 @@ updateOrbit = function(){
     let x = this.rocket.planet.pos.x + cos(this.rocket.orbitAng) * this.rocket.dist;
     let y = this.rocket.planet.pos.y + sin(this.rocket.orbitAng) * this.rocket.dist;
     this.rocket.pos = createVector( x, y ); 
-    this.rocket.orbitAng -= 0.01; //( this.rocket.vel.x + this.rocket.vel.y )/200;
+    this.rocket.orbitAng -= this.rocket.dir; //( this.rocket.vel.x + this.rocket.vel.y )/200;
     
     //console.log(this.rocket.orbitAng);
-    if( this.rocket.orbitAng < -3)
+    if( abs( this.rocket.orbitAng - this.rocket.inicialAng ) > 3.14 )
         this.update = updateMap;
 }
 
 updateMap = function(){
-    this.renderPlanets();
-    this.renderAstrounaut();
-    this.rocket.draw();
     this.map[ this.currentPlanet ].draw();
 
     document.getElementById("gamestartscreen").style.display = "none";
@@ -348,24 +410,18 @@ updateMap = function(){
 }
 
 updateMapPainel = function(){
-    this.renderPlanets();
-    this.renderAstrounaut();
-    this.rocket.draw();
-
     document.getElementById("gamestartscreen").style.display = "block";
     this.map[ this.currentPlanet ].draw();
 
     for( var i=0; i<this.map[ this.currentPlanet ].build.length; i++)
         this.map[ this.currentPlanet ].build[i].draw();
 
-    //this.map.build[5].draw();
+    this.map[ this.currentPlanet ].painel.draw();
+    this.map[ this.currentPlanet ].button.draw();
 
-    this.painel.draw();
-    this.buttonDSN.draw();
-
-    if( infografico.buttonDSN.clicked && this.buttonDSN.func != undefined ){
-        this.buttonDSN.func();
-        infografico.buttonDSN.clicked = false;
+    if( this.map[ this.currentPlanet ].button.clicked && this.map[ this.currentPlanet ].button.func != undefined ){
+        this.map[ this.currentPlanet ].button.func();
+        this.map[ this.currentPlanet ].button.clicked = false;
     }
 }
 
@@ -387,7 +443,7 @@ class Infografico
             'astronaut' : loadImage('assets/astronaut.png', imageLoaded ),
 
             'design_map' : loadImage('assets/DESIGN/DESIGN - BASE MAPA.png', imageLoaded ),
-            'design_popup' : loadImage('assets/POPUP - DESIGN.png', imageLoaded ),
+            'design_popup' : loadImage('assets/DESIGN/design_popup.png', imageLoaded ),
             'design_lapis' : loadImage('assets/DESIGN/predio_lapis.png', img => {
                 img.loadPixels();
                 img.pontos = infografico.sprites['design_lapis'].imageData.data;
@@ -429,6 +485,12 @@ class Infografico
                 img.updatePixels();
                 imageLoaded();
             }), 
+            'design_voltar_brilho' : loadImage('assets/DESIGN/voltar_design_brilho.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['design_voltar_brilho'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }), 
             'design_fechar' : loadImage('assets/DESIGN/design_fechar.png', img => {
                 img.loadPixels();
                 img.pontos = infografico.sprites['design_fechar'].imageData.data;
@@ -437,7 +499,7 @@ class Infografico
             }),
 
             'sistemas_map' : loadImage('assets/SISTEMAS/SISTEMAS - BASE.png', imageLoaded ),
-            'sistemas_popup' : loadImage('assets/POPUP - DESIGN.png', imageLoaded ),
+            'sistemas_popup' : loadImage('assets/SISTEMAS/sistemas_popup.png', imageLoaded ),
             'sistemas_arduino' : loadImage('assets/SISTEMAS/predio_arduino.png', img => {
                 img.loadPixels();
                 img.pontos = infografico.sprites['sistemas_arduino'].imageData.data;
@@ -473,7 +535,19 @@ class Infografico
                 imageLoaded();
             }), 
             'sistemas_planetario_brilho' : loadImage('assets/SISTEMAS/predio_planetario_brilho.png', imageLoaded ),
-            'sistemas_fechar' : loadImage('assets/DESIGN/design_fechar.png', img => {
+            'sistemas_voltar' : loadImage('assets/SISTEMAS/voltar_sistemas.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['sistemas_voltar'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'sistemas_voltar_brilho' : loadImage('assets/SISTEMAS/voltar_sistemas_brilho.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['sistemas_voltar_brilho'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'sistemas_fechar' : loadImage('assets/SISTEMAS/sistemas_fechar.png', img => {
                 img.loadPixels();
                 img.pontos = infografico.sprites['sistemas_fechar'].imageData.data;
                 img.updatePixels();
@@ -481,7 +555,7 @@ class Infografico
             }),
 
             'jogos_map' : loadImage('assets/JOGOS/JOGOS - BASE.png', imageLoaded ),
-            'jogos_popup' : loadImage('assets/POPUP - DESIGN.png', imageLoaded ),
+            'jogos_popup' : loadImage('assets/JOGOS/jogos_popup.png', imageLoaded ),
             'jogos_boneco' : loadImage('assets/JOGOS/predio_boneco.png', img => {
                 img.loadPixels();
                 img.pontos = infografico.sprites['jogos_boneco'].imageData.data;
@@ -510,7 +584,19 @@ class Infografico
                 imageLoaded();
             }), 
             'jogos_planetario_brilho' : loadImage('assets/JOGOS/predio_planetario_brilho.png', imageLoaded ),
-            'jogos_fechar' : loadImage('assets/DESIGN/design_fechar.png', img => {
+            'jogos_voltar' : loadImage('assets/JOGOS/voltar_jogos.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['jogos_voltar'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'jogos_voltar_brilho' : loadImage('assets/JOGOS/voltar_jogos_brilho.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['jogos_voltar_brilho'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'jogos_fechar' : loadImage('assets/JOGOS/jogos_fechar.png', img => {
                 img.loadPixels();
                 img.pontos = infografico.sprites['jogos_fechar'].imageData.data;
                 img.updatePixels();
@@ -518,7 +604,7 @@ class Infografico
             }),
 
             'audiovisual_map' : loadImage('assets/AUDIOVISUAL/AUDIO - BASE MAPA.png', imageLoaded ),
-            'audiovisual_popup' : loadImage('assets/POPUP - DESIGN.png', imageLoaded ),
+            'audiovisual_popup' : loadImage('assets/AUDIOVISUAL/audiovisual_popup.png', imageLoaded ),
             'audiovisual_3d' : loadImage('assets/AUDIOVISUAL/predio_3d.png', img => {
                 img.loadPixels();
                 img.pontos = infografico.sprites['audiovisual_3d'].imageData.data;
@@ -554,7 +640,19 @@ class Infografico
                 imageLoaded();
             }), 
             'audiovisual_planetario_brilho' : loadImage('assets/AUDIOVISUAL/predio_planetario_brilho.png', imageLoaded ),
-            'audiovisual_fechar' : loadImage('assets/DESIGN/design_fechar.png', img => {
+            'audiovisual_voltar' : loadImage('assets/AUDIOVISUAL/voltar_audiovisual.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['audiovisual_voltar'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'audiovisual_voltar_brilho' : loadImage('assets/AUDIOVISUAL/voltar_audiovisual_brilho.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['audiovisual_voltar_brilho'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'audiovisual_fechar' : loadImage('assets/AUDIOVISUAL/audiovisual_fechar.png', img => {
                 img.loadPixels();
                 img.pontos = infografico.sprites['audiovisual_fechar'].imageData.data;
                 img.updatePixels();
@@ -572,10 +670,6 @@ class Infografico
         this.planets.push( new Planet( this.sprites['planeta_jogos'],  440, 750, 140, 250) ); //200
         this.planets.push( new Planet( this.sprites['planeta_sistemas'], 1480, 400, 140, 250) );
         
-        let cnv = createCanvas(1920, 1080);
-        cnv.id("mycanvas");
-        cnv.parent("infografico");
-
         let x = this.planets[0].pos.x + cos( 45) * ( this.planets[0].radius + 15 ) - 50;
         let y = this.planets[0].pos.y + sin(-45) * ( this.planets[0].radius + 15 ) - 25;
         this.astronautSpr = this.sprites['astronaut'];
@@ -585,24 +679,20 @@ class Infografico
         this.astronaut.newton = function(body){};
         this.astronaut.ang = 6.28/8;
         
-        this.rocket = new Player(746, 534-65-20, 0, 0, 0, 255, 255, 20, true);
+        this.rocket = new Player( x+100, y-20, 0, 0, 0, 255, 255, 20, true);
         
         this.shoot = new Shooter( this.rocket );
 
         //this.space = loadImage('assets/space.jpg');
 
         this.distance_minus_planet = 5;
+        
         this.painelSpr = this.sprites['design_popup'];
-
-        var b = new Button( this.sprites['design_fechar'],  0, 0, 680, 510, 
-                            function(){ 
-                                document.getElementById("gamestartscreen").style.display = "none";
-                                infografico.update = updateInitial; 
-                            } 
-                          );
-        this.painel = new Painel( this.painelSpr, 10, 10, 400, 400, b );
+        this.painelInicial = new Painel( this.painelSpr, 0, 0, 400, 400 );
 
         this.map = {};
+
+        
         
         this.loadDesign();
         this.loadSistemas();
@@ -693,17 +783,19 @@ class Infografico
         this.map['design'].build[4].func = mostrarTexto( textPredios['design']['planetario'] );
 
         this.map['design'].build.push( new Building( this.sprites['design_voltar'], 0, 0, 680, 510, 
-            new Building( this.sprites['design_voltar'], 0, 0, 680, 510 ) ) );
+            new Building( this.sprites['design_voltar_brilho'], 0, 0, 680, 510 ) ) );
         this.map['design'].build[5].func = function(){
             infografico.update = updateInitial;
         };
 
-        this.buttonDSN = new Building( this.sprites['design_fechar'], 0, 0, 680, 510, 
+        this.map['design'].button = new Building( this.sprites['design_fechar'], 0, 0, 680, 510, 
             new Building( this.sprites['design_fechar'], 0, 0, 680, 510 ) );
-        this.buttonDSN.func =
+            this.map['design'].button.func =
             function(){
                 infografico.update = updateMap;
             }
+
+        this.map['design'].painel = new Painel( this.sprites['design_popup'], 0, 0, 400, 400 );
     }
 
     loadSistemas(){
@@ -731,11 +823,20 @@ class Infografico
             new Building( this.sprites['sistemas_planetario_brilho'], 0, 0, 680, 510 ) ) );
         this.map['sistemas'].build[4].func = mostrarTexto( textPredios['sistemas']['planetario'] );
 
-        this.map['sistemas'].build.push( new Building( this.sprites['design_voltar'], 0, 0, 680, 510, 
-            new Building( this.sprites['design_voltar'], 0, 0, 680, 510 ) ) );
+        this.map['sistemas'].build.push( new Building( this.sprites['sistemas_voltar'], 0, 0, 680, 510, 
+            new Building( this.sprites['sistemas_voltar_brilho'], 0, 0, 680, 510 ) ) );
         this.map['sistemas'].build[5].func = function(){
             infografico.update = updateInitial;
         };
+
+        this.map['sistemas'].button = new Building( this.sprites['sistemas_fechar'], 0, 0, 680, 510, 
+            new Building( this.sprites['sistemas_fechar'], 0, 0, 680, 510 ) );
+            this.map['sistemas'].button.func =
+            function(){
+                infografico.update = updateMap;
+            }
+
+        this.map['sistemas'].painel = new Painel( this.sprites['sistemas_popup'], 0, 0, 400, 400 );
     }
     
     loadJogos(){
@@ -759,11 +860,20 @@ class Infografico
             new Building( this.sprites['jogos_planetario_brilho'], 0, 0, 680, 510 ) ) );
         this.map['jogos'].build[3].func = mostrarTexto( textPredios['jogos']['planetario'] );
 
-        this.map['jogos'].build.push( new Building( this.sprites['design_voltar'], 0, 0, 680, 510, 
-            new Building( this.sprites['design_voltar'], 0, 0, 680, 510 ) ) );
+        this.map['jogos'].build.push( new Building( this.sprites['jogos_voltar'], 0, 0, 680, 510, 
+            new Building( this.sprites['jogos_voltar_brilho'], 0, 0, 680, 510 ) ) );
         this.map['jogos'].build[4].func = function(){
             infografico.update = updateInitial;
         };
+
+        this.map['jogos'].button = new Building( this.sprites['jogos_fechar'], 0, 0, 680, 510, 
+            new Building( this.sprites['jogos_fechar'], 0, 0, 680, 510 ) );
+            this.map['jogos'].button.func =
+            function(){
+                infografico.update = updateMap;
+            }
+
+        this.map['jogos'].painel = new Painel( this.sprites['jogos_popup'], 0, 0, 400, 400 );
     }
 
     loadAudiovisual(){
@@ -791,16 +901,27 @@ class Infografico
             new Building( this.sprites['audiovisual_planetario_brilho'], 0, 0, 680, 510 ) ) );
         this.map['audiovisual'].build[4].func = mostrarTexto( textPredios['audiovisual']['planetario'] );
 
-        this.map['audiovisual'].build.push( new Building( this.sprites['design_voltar'], 0, 0, 680, 510, 
-            new Building( this.sprites['design_voltar'], 0, 0, 680, 510 ) ) );
+        this.map['audiovisual'].build.push( new Building( this.sprites['audiovisual_voltar'], 0, 0, 680, 510, 
+            new Building( this.sprites['audiovisual_voltar_brilho'], 0, 0, 680, 510 ) ) );
         this.map['audiovisual'].build[5].func = function(){
             infografico.update = updateInitial;
         };
+
+        this.map['audiovisual'].button = new Building( this.sprites['audiovisual_fechar'], 0, 0, 680, 510, 
+            new Building( this.sprites['audiovisual_fechar'], 0, 0, 680, 510 ) );
+            this.map['audiovisual'].button.func =
+            function(){
+                infografico.update = updateMap;
+            }
+
+        this.map['audiovisual'].painel = new Painel( this.sprites['audiovisual_popup'], 0, 0, 400, 400 );
     }
 }
 
 function setup(){
-    infografico = new Infografico();
+    let cnv = createCanvas(1920, 1080);
+    cnv.id("mycanvas");
+    cnv.parent("infografico");
 
     bck1 = loadImage('./assets/ESTRELAS - 1.png');
     bck2 = loadImage('./assets/ESTRELAS - 2.png');
@@ -817,20 +938,22 @@ var cont = 0;
 
 
 function draw(){
-    cont++;
-    
-    scale( sizeFactor() );
-    imageMode(CORNER);
-    background( 3,18,45 );
-    //image( back , 0, 0 );
-    infografico.update();
+    if( infografico.update != undefined ){
+        cont++;
+        scale( sizeFactor() );
+        imageMode(CORNER);
+        background( 3,18,45 );
+        //image( back , 0, 0 );
+        infografico.update();
+        //updateLoading();
 
-    if( cont >= 120 ){
-        if( bck == bck1 )
-            bck = bck2;
-        else if( bck == bck2 )
-            bck = bck1;
-        cont = 0;
+        if( cont >= 120 ){
+            if( bck == bck1 )
+                bck = bck2;
+            else if( bck == bck2 )
+                bck = bck1;
+            cont = 0;
+        }
     }
 }
 
@@ -842,6 +965,8 @@ function windowResized() {
 
 
 function mouseClicked(){
+    if( infografico.update != undefined ){
+
     if( infografico.painel )
         if( infografico.painel.button )
             infografico.painel.button.clicked = true;
@@ -853,8 +978,9 @@ function mouseClicked(){
     if( infografico.buttonINT.collision() && infografico.buttonINT )
         infografico.buttonINT.clicked = true;
 
-    if( infografico.buttonDSN.collision() && infografico.buttonDSN.func != undefined && infografico.update == updateMapPainel ){
-        infografico.buttonDSN.clicked = true;
+    if( infografico.map[ infografico.currentPlanet ].button.collision() && 
+        infografico.map[ infografico.currentPlanet ].button.func != undefined && infografico.update == updateMapPainel ){
+            infografico.map[ infografico.currentPlanet ].button.clicked = true;
         //console.log("clicked");
     }
 
@@ -865,6 +991,8 @@ function mouseClicked(){
         {
             infografico.map[ infografico.currentPlanet ].build[i].clicked = true;
         }
+
+    }
 }
 
 
