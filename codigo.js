@@ -1,14 +1,44 @@
 ﻿planetsNames = ['terra','audiovisual','design','jogos','sistemas'];
-
+//style="word-wrap: normal;white-space: nowrap;"
 textPredios = {
     'iniciais' : {
-        '1' : `
+        0 : `
         <div class="painel" >
-            <div class="tituloParent" >
-                <span class="titulo" > O QUE É O MEDIADAY? </span>
-            </div>
             <div class="informacao" >
-            O Media Day é um projeto de extensão itinerante da Universidade Federal do Ceará com o objetivo de difundir conhecimento e despertar as habilidades dos participantes através do contato direto e prático com as áreas de estudo do curso de Sistemas e Mídias Digitais. A principal ideia do projeto é divulgar em diversas cidades do Estado do Ceará os trabalhos desenvolvidos no curso e estimular o interesse pela Universidade. São ofertadas disciplinas nas áreas de Design, Audiovisual, Sistemas e Jogos. O Media Day é gratuito e aberto a toda a sociedade. 
+            Há pouco tempo, em uma galáxia não muito distante...
+            Um jovem astronauta iniciou uma viagem espacial revolucionária a bordo de seu pequeno foguete.
+            </div>
+        </div>    
+        `,
+        1 : `
+        <div class="painel" >
+            <div class="informacao" >
+            Ele foi convocado para uma importante missão, chamada
+            "Missão Media Day"
+            </div>
+        </div>    
+        `,
+        2 : `
+        <div class="painel" >
+            <div class="informacao" >
+            Que recebeu esse nome devido a um projeto de extensão itinerante da Universidade Federal do Ceará.
+            Cujo objetivo é difundir conhecimento e despertar as habilidades dos participantes através do contato direto e prático com as áreas de estudo do curso de Sistemas e Mídias Digitais, que incluem Design, Audiovisual, Sistemas e Jogos. 
+            </div>
+        </div>    
+        `,
+        3 : `
+        <div class="painel" >
+            <div class="informacao" >
+            A principal ideia do projeto é divulgar em diversas cidades do Estado do Ceará os trabalhos desenvolvidos no curso e estimular o interesse pela Universidade.
+            Assim como os participantes das oficinas do projeto de extensão, o viajante espacial precisa adquirir o máximo de conhecimento possível das áreas de estudo do curso de Sistemas e Mídias Digitais.
+            </div>
+        </div>    
+        `,
+        4 : `
+        <div class="painel" >
+            <div class="informacao" >
+            E pra isso, ele precisa da sua ajuda.
+            Impulsione o foguete na direção dos planetas e explore suas cidades ao lado desse jovem astronauta.
             </div>
         </div>    
         `
@@ -21,7 +51,9 @@ textPredios = {
             </div>
             <div class="informacao" >
             Na subárea de desenho, o participante encontrará oficinas tanto de desenho analógico quanto de desenho digital. As oficinas de desenho analógico trazem conhecimento à respeito das melhores técnicas para desenho à mão livre, pintura com lápis de cor, entre outros. O desenho digital é feito a partir de processos digitais, e os participantes irão aprender a utilizar softwares de computador e equipamentos que auxiliem na produção de ilustrações digitais, pintura digital, entre outros. 
-            <br> Link: <a target="_blank" href="https://pt.wikipedia.org/wiki/Desenho"> https://pt.wikipedia.org/wiki/Desenho </a>
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://pt.wikipedia.org/wiki/Desenho"> Clique aqui para saber mais </a>
             </div>
         </div>    
         `, 
@@ -33,6 +65,9 @@ textPredios = {
             <div class="informacao" >
             São oferecidas oficinas que estimulam a produção criativa do participante e sua capacidade de invenção, reinvenção e inovação. Serão apresentados conceitos que tornarão amplo o repertório de cada pessoa, permitindo que a partir desse repertório e da sua vivência, criem novas ideias.
             </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://manualdasecretaria.com.br/criatividade/"> Clique aqui para saber mais </a>
+            </div>
         </div>
         `,
         'interface' : `
@@ -43,6 +78,9 @@ textPredios = {
             <div class="informacao" >
             Na subárea de Design de Interfaces Gráficas, serão apresentados os conceitos de design de interfaces, usabilidade, design gráfico, entre outros. Além de aprender as técnicas para utilização de softwares da área, os participantes também serão orientados sobre conceitos de usabilidade, que permitem que se pense na interação do usuário com a sua interface gráfica.
             </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://www.chiefofdesign.com.br/ui-design/"> Clique aqui para saber mais </a>
+            </div>
         </div>
         `,
         'edicao' : `
@@ -50,8 +88,11 @@ textPredios = {
             <div class="tituloParent" >
                 <span class="titulo" > EDIÇÃO DE IMAGEM </span>
             </div>
-            <div class="informacao" >
+            <div class="informaca o" >
             Nas oficinas relacionadas à edição de imagem os participantes irão aprender a alterar e manusear os conteúdos de imagens de acordo com o seu objetivo de uso. Além disso, é ensinado também como utilizar os softwares específicos para edição de imagens, como Photoshop e Gimp.
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://blog.emania.com.br/tudo-que-voce-precisa-saber-sobre-a-edicao-de-fotos/"> Clique aqui para saber mais </a>
             </div>
         </div>    
         `,
@@ -61,7 +102,11 @@ textPredios = {
                 <span class="titulo" > DESIGN </span>
             </div>
             <div class="informacao" >
-            Na área de Design, o projeto apresenta oficinas de Desenho, Edição de Imagem, Design de Interfaces Gráficas, Criatividade, entre outras. Conhecimento que pode levar para oportunidades de criação e produção de peças gráficas para o meio digital, criação de logotipos, marcas, embalagens, criação visual de sites, blogs, banners para a internet, desenvolvimento de anúncios, panfletos, cartazes, etc. </div>
+            Na área de Design, o projeto apresenta oficinas de Desenho, Edição de Imagem, Design de Interfaces Gráficas, Criatividade, entre outras. Conhecimento que pode levar para oportunidades de criação e produção de peças gráficas para o meio digital, criação de logotipos, marcas, embalagens, criação visual de sites, blogs, banners para a internet, desenvolvimento de anúncios, panfletos, cartazes, etc. 
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://www.guiadacarreira.com.br/guia-das-profissoes/design-grafico/"> Clique aqui para saber mais </a>
+            </div>
         </div>
         ` 
     },
@@ -73,6 +118,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             As oficinas relacionadas à Modelagem 3D, apresentam como utilizar softwares de modelagem e as diversas técnicas que podem ser utilizadas para modelar. A modelagem 3D também traz conhecimentos que podem ser utilizados na área de Animação.
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://saga.art.br/o-que-e-modelagem-3d/"> Clique aqui para saber mais </a>
+            </div>
         </div>
         `,
         'animacao' : `
@@ -82,6 +131,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             As oficinas de Animação trazem conceitos de desenho para criação de filmes quadro a quadro. Desenvolvendo e produzindo animações digitais ou analógicas, usando técnicas 2D (bidimensional), 3D (tridimensional), stop motion, entre outras.
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="http://www.mundogump.com.br/os-12-principios-da-animacao/"> Clique aqui para saber mais </a>
+            </div>    
         </div>
         `,
         'fotografia' : `
@@ -91,15 +144,23 @@ textPredios = {
             </div>
             <div class="informacao" >
             Na subárea de fotografia, os participantes aprenderão técnicas fotográficas e diferentes orientações sobre como utilizar os equipamentos e como aprimorar sua forma de enxergar oportunidades de fotografar.
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://pt.wikipedia.org/wiki/Fotografia"> Clique aqui para saber mais </a>
+            </div>
         </div>
         `,
         'narrativas' : `
-        <div class="painel" >
+        <div class="paine l" >
             <div class="tituloParent" >
                 <span class="titulo" > NARRATIVAS </span>
             </div>
             <div class="informacao" >
             Nas oficinas de Narrativas, os participantes serão orientados sobre conceitos audiovisuais para a criação de roteiros a partir da sua criatividade. São apresentados também técnicas e softwares que auxiliarão nessa produção.
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://vidmonsters.com/blog/narrativa-audiovisual/"> Clique aqui para saber mais </a>
+            </div>    
         </div>
         `,
         'planetario' : `
@@ -109,6 +170,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             Na área de Audiovisual, são oferecidas oficinas de Narrativas, Fotografia, Modelagem 3D, Animação, entre outras. A área de Audiovisual permite a participação produção de vídeos, cobertura de eventos, vídeos institucionais, videoaulas, animações, vídeos publicitários, documentais, institucionais e jornalísticos, vinhetas, etc. 
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="http://tutano.trampos.co/15344-guia-de-profissoes-producao-audiovisual/"> Clique aqui para saber mais </a>
+            </div>    
         </div>
         ` 
     },
@@ -120,6 +185,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             Na subárea de Lógica de Programação é ensinado o modo de escrever programas de computador, que mais tarde serão implementados, utilizando algoritmos. Um algoritmo é a sequência de passos para se executar uma função. 
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://becode.com.br/melhor-forma-de-aprender-logica-de-programacao/"> Clique aqui para saber mais </a>
+            </div>    
         </div>
         `,
         'arduino' : `
@@ -129,6 +198,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             Nas oficinas de Arduíno é ensinado como utilizar o hardware único, de placa única, para criar prototipagens eletrônicas. O microcontrolador cria ferramentas fáceis de se usar por principiantes e profissionais para automatização, criação de robôs, entre outros. 
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://www.filipeflop.com/blog/o-que-e-arduino/"> Clique aqui para saber mais </a>
+            </div>
         </div>
         `,
         'web' : `
@@ -138,6 +211,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             Na subárea de Desenvolvimento Web são ensinados conceitos de programação utilizados para desenvolvimento de sites, entre outros.
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://usemobile.com.br/desenvolvimento-web-processo/"> Clique aqui para saber mais </a>
+            </div>
         </div>
         `,
         'bd' : `
@@ -147,6 +224,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             Nas oficinas relacionadas a Banco de Dados, são apresentados softwares, recursos e conceitos a respeito da criação, manipulação e interação das informações de um Banco de Dados com os usuários.
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://tecnoblog.net/245120/banco-de-dados-importancia/"> Clique aqui para saber mais </a>
+            </div>    
         </div>
         `,
         'planetario' : `
@@ -156,6 +237,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             Na área de Sistemas, são apresentadas oficinas relacionadas à Lógica de Programação, Arduíno, Desenvolvimento Web, Banco de Dados, entre outras. O conhecimento na área permite atuação em projetar e desenvolver sistemas, modernizar o processo de comunicação de uma empresa, criando, adaptando e instalando programas, fazer a interligação entre a administração da empresa e a área de computação, desenvolver softwares para planejar e administrar rotas, sistemas de armazenagem e o tempo de entrega de produtos, por exemplo.
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://guiadoestudante.abril.com.br/profissoes/sistemas-de-informacao/"> Clique aqui para saber mais </a>
+            </div>    
         </div>
         ` 
     },
@@ -167,6 +252,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             Nas oficinas de Concepção de Jogos são apresentados os conceitos fundamentais para o desenvolvimento de um jogo digital ou analógico. 
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="http://www.formuladejogos.com.br/single-post/2016/05/03/2%C2%BA-M%C3%B3dulo-Game-Design"> Clique aqui para saber mais </a>
+            </div>    
         </div>
         `,
         'personagens' : `
@@ -176,6 +265,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             Na subárea de Criação de Personagens para Jogos, os participantes são introduzidos a conceitos e técnicas que facilitem o desenvolvimento de personagens para suas narrativas de jogos, assim como o conceito visual do personagem, desenho, entre outros.
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://www.designerd.com.br/design-de-games-criacao-dos-personagens/"> Clique aqui para saber mais </a>
+            </div>    
         </div>
         `,
         'tabuleiro' : `
@@ -185,6 +278,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             Nas oficinas relacionadas a Jogos de Tabuleiro são ensinadas técnicas para a produção de jogos analógicos de tabuleiro.
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://gamedevelopment.tutsplus.com/pt/articles/how-to-learn-board-game-design-and-development--gamedev-11607"> Clique aqui para saber mais </a>
+            </div>    
         </div>
         `,
         'planetario' : `
@@ -194,6 +291,10 @@ textPredios = {
             </div>
             <div class="informacao" >
             Na área de Jogos, as oficinas são relacionadas a Concepção de Jogos, Criação de Personagens para Jogos, Jogos de Tabuleiro, entre outros. O mercado da área permite atuação na produção direta de games, na concepção de ambientes e cenários 3D, além de em projetos ligados ao cinema, televisão, teatro, animações, propaganda, educação e entretenimento. 
+            </div>
+            <div class="tituloParent">
+                <a target="_blank" href="https://vestibular.mundoeducacao.bol.uol.com.br/guia-de-profissoes/jogos-digitais.htm"> Clique aqui para saber mais </a>
+            </div>    
         </div>
         ` 
     }
@@ -219,7 +320,7 @@ rocketLoading = function(){
     rect(-134/2-40,-498,270/2+80,188);
 
     fill(255);
-    rect(-134/2,-490,270/2,188);
+    rect(-134/2,-520,270/2,218);
     
     fill(255);
     rect(-94,-310,188,300);
@@ -271,6 +372,8 @@ updateLoading = function(){
     if( imagesToLoad == imagesLoaded ) this.update = updateIntrodution;
 }
 
+var textoInicial = 0;
+
 updateIntrodution = function(){
     this.rocket.ang = 3.14;
     this.renderPlanets();
@@ -279,24 +382,31 @@ updateIntrodution = function(){
 
     this.astronaut.ang = 0;
     if( this.astronaut.pos.x < this.planets[0].pos.x + cos(45) * ( this.planets[0].radius + 120 ) )
-        this.astronaut.pos.x += 0.2;
-    else this.update = updatePainel;
+        this.astronaut.pos.x += 0.3;
+    else{
+        var div = document.getElementById("gamestartscreen"); 
+        div.innerHTML = textPredios['iniciais'][textoInicial]; 
+        document.getElementById("gamestartscreen").style.display = "block";
+        this.update = updatePainel;
+    }
 }
 
 updatePainel = function(){
     this.renderPlanets();
     this.rocket.draw();
-
-    var div = document.getElementById("gamestartscreen"); 
-    div.innerHTML = textPredios['iniciais']['1']; 
-    document.getElementById("gamestartscreen").style.display = "block";
     
     this.painelInicial.draw();
     this.buttonINT.draw();
+    this.buttonANV.draw();
 
     if( this.buttonINT.clicked && this.buttonINT.func != undefined ){
         this.buttonINT.func();
         this.buttonINT.clicked = false;
+    }
+
+    if( this.buttonANV.clicked && this.buttonANV.func != undefined ){
+        this.buttonANV.func();
+        this.buttonANV.clicked = false;
     }
 }
 
@@ -362,7 +472,7 @@ updateLaunch = function(){
                 this.rocket.inicialAng = this.rocket.orbitAng;
                 
                 //if( this.rocket.vel.heading() < -2.09  )
-                    this.rocket.dir = 0.2;
+                    this.rocket.dir = 0.14;
                 //else {
                 //    this.rocket.dir =  0.2;
                 //}
@@ -658,6 +768,13 @@ class Infografico
                 img.updatePixels();
                 imageLoaded();
             }),
+
+            'avancar' : loadImage('assets/botao_avancar.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['avancar'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            })
         };
 
         imagesToLoad = Object.keys( this.sprites ).length;
@@ -698,6 +815,24 @@ class Infografico
         this.loadSistemas();
         this.loadJogos();
         this.loadAudiovisual();
+
+        this.buttonANV = new Building( this.sprites['avancar'], 0, 0, 680, 510, 
+            new Building( this.sprites['avancar'], 0, 0, 680, 510 ) );
+        this.buttonANV.func =
+            function(){
+                textoInicial++;
+                if( textPredios['iniciais'][textoInicial] == undefined ){
+                    var div = document.getElementById("gamestartscreen"); 
+                    div.style.display = "none";
+                    infografico.update = updateInitial;
+                }
+                else {
+                    var div = document.getElementById("gamestartscreen"); 
+                    div.innerHTML = textPredios['iniciais'][textoInicial]; 
+                    document.getElementById("gamestartscreen").style.display = "block";
+                    this.update = updatePainel;       
+                }         
+            }
 
         this.buttonINT = new Building( this.sprites['design_fechar'], 0, 0, 680, 510, 
             new Building( this.sprites['design_fechar'], 0, 0, 680, 510 ) );
@@ -977,6 +1112,9 @@ function mouseClicked(){
 
     if( infografico.buttonINT.collision() && infografico.buttonINT )
         infografico.buttonINT.clicked = true;
+
+    if( infografico.buttonANV.collision() && infografico.buttonANV )
+        infografico.buttonANV.clicked = true;
 
     if( infografico.map[ infografico.currentPlanet ].button.collision() && 
         infografico.map[ infografico.currentPlanet ].button.func != undefined && infografico.update == updateMapPainel ){
