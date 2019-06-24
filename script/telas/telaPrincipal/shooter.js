@@ -70,7 +70,7 @@ class Shooter {
 	draw() {
         if ((this.shooting) || (this.c_shooting)) {
             /* Draw the line and the arraow */
-            stroke(0);
+            stroke(255);
             line(this.x1-5,this.y1, this.x1+5, this.y1);
             line(this.x1,this.y1-5, this.x1, this.y1+5);
                 line(this.x1, this.y1, this.x2, this.y2);
