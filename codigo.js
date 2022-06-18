@@ -7,18 +7,12 @@ textPredios = {
             <div class="informacao" >
             Há pouco tempo, em uma galáxia não muito distante...
             Um jovem astronauta iniciou uma viagem espacial revolucionária a bordo de seu pequeno foguete.
-            </div>
-        </div>    
-        `,
-        1 : `
-        <div class="painel" >
-            <div class="informacao" >
             Ele foi convocado para uma importante missão, chamada
             "Missão Media Day"
             </div>
         </div>    
         `,
-        2 : `
+        1 : `
         <div class="painel" >
             <div class="informacao" >
             Que recebeu esse nome devido a um projeto de extensão itinerante da Universidade Federal do Ceará.
@@ -26,7 +20,7 @@ textPredios = {
             </div>
         </div>    
         `,
-        3 : `
+        2 : `
         <div class="painel" >
             <div class="informacao" >
             A principal ideia do projeto é divulgar em diversas cidades do Estado do Ceará os trabalhos desenvolvidos no curso e estimular o interesse pela Universidade.
@@ -34,7 +28,7 @@ textPredios = {
             </div>
         </div>    
         `,
-        4 : `
+        3 : `
         <div class="painel" >
             <div class="informacao" >
             E pra isso, ele precisa da sua ajuda.
@@ -43,6 +37,20 @@ textPredios = {
         </div>    
         `
     },
+    'mais' : `
+        <div class="painel" >
+            <div class="informacao" >
+            Media Day
+            O Media Day é um projeto de extensão itinerante da Universidade Federal do Ceará com o objetivo de difundir conhecimento e despertar as habilidades dos participantes através do contato direto e prático com as áreas de estudo do curso de Sistemas e Mídias Digitais. A principal ideia do projeto é divulgar em diversas cidades do Estado do Ceará os trabalhos desenvolvidos no curso e estimular o interesse pela Universidade. São ofertadas disciplinas nas áreas de Design, Audiovisual, Sistemas e Jogos. O Media Day é gratuito e aberto a toda a sociedade. 
+            <br>
+            <br>
+            <div style="width: 100%; text-align: center; font-weight: 900;">Créditos</div>
+            Ilustração: Antonio Lourran <br>
+            Conteudistas: Andrew Noronha, Guilherme Ramos <br>
+            Programação: Erivan Pereira
+            </div>
+        </div>    
+    `,
     'design' : {
         'lapis' : `
         <div class="painel" >
@@ -88,7 +96,7 @@ textPredios = {
             <div class="tituloParent" >
                 <span class="titulo" > EDIÇÃO DE IMAGEM </span>
             </div>
-            <div class="informaca o" >
+            <div class="informacao" >
             Nas oficinas relacionadas à edição de imagem os participantes irão aprender a alterar e manusear os conteúdos de imagens de acordo com o seu objetivo de uso. Além disso, é ensinado também como utilizar os softwares específicos para edição de imagens, como Photoshop e Gimp.
             </div>
             <div class="tituloParent">
@@ -151,7 +159,7 @@ textPredios = {
         </div>
         `,
         'narrativas' : `
-        <div class="paine l" >
+        <div class="painel" >
             <div class="tituloParent" >
                 <span class="titulo" > NARRATIVAS </span>
             </div>
@@ -410,16 +418,33 @@ updatePainel = function(){
     }
 }
 
+updateMAIS = function(){
+    this.renderPlanets();
+    this.rocket.draw();
+    
+    this.painelInicial.draw();
+    this.buttonINT.draw();
+
+    if( this.buttonINT.clicked && this.buttonINT.func != undefined ){
+        this.buttonINT.func();
+        this.buttonINT.clicked = false;
+    }
+}
+
 var learning = 0, know = false;
 
 updateInitial = function(){
     if (!mouseIsPressed && this.shoot.shooting) this.update = updateLaunch;
 
+    push();
     this.renderPlanets();
-    this.renderShooter();
+
+    if( !(this.barra.collision()) ) 
+        this.renderShooter();
+    
     this.rocket.draw();
 
-    if( !know ){
+    if( !know && !(this.barra.collision()) ){
         if( learning > 100 ) learning = 0;
 
         fill(255);
@@ -434,6 +459,34 @@ updateInitial = function(){
         learning+=1;
     }
     if( mouseIsPressed ) know = true;
+    pop();
+    //translate(0,0);
+
+    this.barra.draw();
+    this.buttonMEDIA.draw();
+    this.buttonFACEBOOK.draw();
+    this.buttonINSTAGRAM.draw();
+    this.buttonMAIS.draw();
+
+    if( this.buttonMEDIA.clicked && this.buttonMEDIA.func != undefined ){
+        this.buttonMEDIA.func();
+        this.buttonMEDIA.clicked = false;
+    }
+
+    if( this.buttonFACEBOOK.clicked && this.buttonFACEBOOK.func != undefined ){
+        this.buttonFACEBOOK.func();
+        this.buttonFACEBOOK.clicked = false;
+    }
+
+    if( this.buttonINSTAGRAM.clicked && this.buttonINSTAGRAM.func != undefined ){
+        this.buttonINSTAGRAM.func();
+        this.buttonINSTAGRAM.clicked = false;
+    }
+
+    if( this.buttonMAIS.clicked && this.buttonMAIS.func != undefined ){
+        this.buttonMAIS.func();
+        this.buttonMAIS.clicked = false;
+    }
 }
 
 updateLaunch = function(){
@@ -545,6 +598,14 @@ class Infografico
         this.currentPlanet = undefined;
 
         this.sprites = { 
+            'inicial_popup' :  loadImage('assets/POPUP - INICIAL.png', imageLoaded ),
+            'inicial_fechar' : loadImage('assets/BOTÃO - INICIAL.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['inicial_fechar'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+
             'planeta_terra' : loadImage('assets/terra.png', imageLoaded ),
             'planeta_audiovisual' : loadImage('assets/PLANETA - AUDIOVISUAL.png', imageLoaded ),
             'planeta_design' : loadImage('assets/PLANETA - DESING.png', imageLoaded ),
@@ -774,7 +835,39 @@ class Infografico
                 img.pontos = infografico.sprites['avancar'].imageData.data;
                 img.updatePixels();
                 imageLoaded();
-            })
+            }),
+
+            'facebook' : loadImage('assets/FACE.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['facebook'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'instagram' : loadImage('assets/IG.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['instagram'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'mais' : loadImage('assets/MAIS.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['mais'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+            'md' : loadImage('assets/MEDIADAY.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['md'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
+
+            'barra' : loadImage('assets/BARRA.png', img => {
+                img.loadPixels();
+                img.pontos = infografico.sprites['barra'].imageData.data;
+                img.updatePixels();
+                imageLoaded();
+            }),
         };
 
         imagesToLoad = Object.keys( this.sprites ).length;
@@ -804,7 +897,7 @@ class Infografico
 
         this.distance_minus_planet = 5;
         
-        this.painelSpr = this.sprites['design_popup'];
+        this.painelSpr = this.sprites['inicial_popup'];
         this.painelInicial = new Painel( this.painelSpr, 0, 0, 400, 400 );
 
         this.map = {};
@@ -834,14 +927,50 @@ class Infografico
                 }         
             }
 
-        this.buttonINT = new Building( this.sprites['design_fechar'], 0, 0, 680, 510, 
-            new Building( this.sprites['design_fechar'], 0, 0, 680, 510 ) );
+        this.buttonINT = new Building( this.sprites['inicial_fechar'], 0, 0, 680, 510, 
+            new Building( this.sprites['inicial_fechar'], 0, 0, 680, 510 ) );
         this.buttonINT.func =
             function(){
                 var div = document.getElementById("gamestartscreen"); 
                 div.style.display = "none";
                 infografico.update = updateInitial;
             }
+
+        this.buttonMEDIA = new Building( this.sprites['md'], 0, 0, 680, 510, 
+            new Building( this.sprites['md'], 0, 0, 680, 510 ) );
+        this.buttonMEDIA.func =
+            function(){
+                window.open("http://mediaday.ufc.br/");
+            }
+        
+        this.buttonFACEBOOK = new Building( this.sprites['facebook'], 0, 0, 680, 510, 
+            new Building( this.sprites['facebook'], 0, 0, 680, 510 ) );
+        this.buttonFACEBOOK.func =
+            function(){
+                window.open("https://www.facebook.com/mediadaysmd");
+            }
+
+        this.buttonINSTAGRAM = new Building( this.sprites['instagram'], 0, 0, 680, 510, 
+            new Building( this.sprites['instagram'], 0, 0, 680, 510 ) );
+        this.buttonINSTAGRAM.func =
+            function(){
+                window.open("https://www.instagram.com/mediadaysmd");
+            }
+
+        this.buttonMAIS = new Building( this.sprites['mais'], 0, 0, 680, 510, 
+            new Building( this.sprites['mais'], 0, 0, 680, 510 ) );
+        this.buttonMAIS.func =
+            function(){
+                var div = document.getElementById("gamestartscreen"); 
+                div.innerHTML = textPredios['mais']; 
+                document.getElementById("gamestartscreen").style.display = "block";  
+                infografico.update = updateMAIS; 
+            }
+
+        this.barra = new Building( this.sprites['barra'], 0, 0, 680, 510, 
+            new Building( this.sprites['barra'], 0, 0, 680, 510 ) );
+        this.barra.func =
+            function(){}
 
         /*this.map.build.push( new Building( this.design_fechar, 0, 0, 680, 510, 
             new Building( loadImage('assets/DESIGN/design_fechar.png'), 0, 0, 680, 510 ) ) );
@@ -1112,6 +1241,18 @@ function mouseClicked(){
 
     if( infografico.buttonINT.collision() && infografico.buttonINT )
         infografico.buttonINT.clicked = true;
+
+        if( infografico.buttonFACEBOOK.collision() && infografico.buttonFACEBOOK )
+            infografico.buttonFACEBOOK.clicked = true;
+
+        if( infografico.buttonINSTAGRAM.collision() && infografico.buttonINSTAGRAM )
+            infografico.buttonINSTAGRAM.clicked = true;
+
+        if( infografico.buttonMAIS.collision() && infografico.buttonMAIS )
+            infografico.buttonMAIS.clicked = true;
+
+        if( infografico.buttonMEDIA.collision() && infografico.buttonMEDIA )
+            infografico.buttonMEDIA.clicked = true;
 
     if( infografico.buttonANV.collision() && infografico.buttonANV )
         infografico.buttonANV.clicked = true;
